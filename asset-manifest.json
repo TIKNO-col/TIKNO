@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pagina-react%3E/static/css/main.cc46109d.css",
-    "main.js": "/pagina-react%3E/static/js/main.8cdf2d7d.js",
-    "static/js/453.621f152c.chunk.js": "/pagina-react%3E/static/js/453.621f152c.chunk.js",
-    "index.html": "/pagina-react%3E/index.html",
-    "main.cc46109d.css.map": "/pagina-react%3E/static/css/main.cc46109d.css.map",
-    "main.8cdf2d7d.js.map": "/pagina-react%3E/static/js/main.8cdf2d7d.js.map",
-    "453.621f152c.chunk.js.map": "/pagina-react%3E/static/js/453.621f152c.chunk.js.map"
+    "main.css": "/pagina-react/static/css/main.cc46109d.css",
+    "main.js": "/pagina-react/static/js/main.2108aa1a.js",
+    "static/js/453.621f152c.chunk.js": "/pagina-react/static/js/453.621f152c.chunk.js",
+    "index.html": "/pagina-react/index.html",
+    "main.cc46109d.css.map": "/pagina-react/static/css/main.cc46109d.css.map",
+    "main.2108aa1a.js.map": "/pagina-react/static/js/main.2108aa1a.js.map",
+    "453.621f152c.chunk.js.map": "/pagina-react/static/js/453.621f152c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc46109d.css",
-    "static/js/main.8cdf2d7d.js"
+    "static/js/main.2108aa1a.js"
   ]
 }
