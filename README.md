@@ -185,6 +185,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 - [Anime.js](https://animejs.com/) - Librería de animaciones
 - [Google Fonts](https://fonts.google.com/) - Tipografía Inter
 - [Create React App](https://create-react-app.dev/) - Configuración inicial
+- Teban
 
 ---
 
