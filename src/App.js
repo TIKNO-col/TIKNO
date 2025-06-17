@@ -8,8 +8,51 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [typewriterText, setTypewriterText] = useState('');
+  const [language, setLanguage] = useState('es');
   
   const heroRef = useRef(null);
+
+  
+  const translations = {
+    es: {
+      nav: {
+        inicio: 'Inicio',
+        proyectos: 'Proyectos',
+        tecnologias: 'Tecnologías',
+        precios: 'Precios',
+        equipo: 'Equipo',
+        contacto: 'Contacto'
+      },
+      hero: {
+        greeting: 'Hola, somos',
+        studio: 'Studio',
+        mission: 'Creamos experiencias digitales que transforman ideas en realidad.',
+        btnProjects: 'Ver Proyectos',
+        btnContact: 'Contactar',
+        scroll: 'Scroll'
+      }
+    },
+    en: {
+      nav: {
+        inicio: 'Home',
+        proyectos: 'Projects',
+        tecnologias: 'Technologies',
+        precios: 'Pricing',
+        equipo: 'Team',
+        contacto: 'Contact'
+      },
+      hero: {
+        greeting: 'Hello, we are',
+        studio: 'Studio',
+        mission: 'We create digital experiences that transform ideas into reality.',
+        btnProjects: 'View Projects',
+        btnContact: 'Contact',
+        scroll: 'Scroll'
+      }
+    }
+  };
+
+  const t = translations[language];
   const projectsRef = useRef(null);
   const cursorRef = useRef(null);
   const cursorTrailRef = useRef(null);
@@ -176,7 +219,7 @@ function App() {
       name: 'Esteban Lozano',
       role: 'Co-Fundador & Backend Developer',
       skills: ['Python', 'PostgreSQL', 'Docker', 'DevOps'],
-      avatar: '👨‍🔬',
+      avatar: '👨‍💻',
       description: 'Experto en backend, bases de datos y infraestructura cloud'
     }
   ];
@@ -456,15 +499,30 @@ function App() {
           </div>
           
           <ul className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
-            <li><a href="#inicio" onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? 'active' : ''}>Inicio</a></li>
-            <li><a href="#proyectos" onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? 'active' : ''}>Proyectos</a></li>
-            <li><a href="#tecnologias" onClick={() => scrollToSection('tecnologias')} className={activeSection === 'tecnologias' ? 'active' : ''}>Tecnologías</a></li>
-            <li><a href="#precios" onClick={() => scrollToSection('precios')} className={activeSection === 'precios' ? 'active' : ''}>Precios</a></li>
-            <li><a href="#equipo" onClick={() => scrollToSection('equipo')} className={activeSection === 'equipo' ? 'active' : ''}>Equipo</a></li>
-            <li><a href="#contacto" onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? 'active' : ''}>Contacto</a></li>
+            <li><a href="#inicio" onClick={() => scrollToSection('inicio')} className={activeSection === 'inicio' ? 'active' : ''}>{t.nav.inicio}</a></li>
+            <li><a href="#proyectos" onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? 'active' : ''}>{t.nav.proyectos}</a></li>
+            <li><a href="#tecnologias" onClick={() => scrollToSection('tecnologias')} className={activeSection === 'tecnologias' ? 'active' : ''}>{t.nav.tecnologias}</a></li>
+            <li><a href="#precios" onClick={() => scrollToSection('precios')} className={activeSection === 'precios' ? 'active' : ''}>{t.nav.precios}</a></li>
+            <li><a href="#equipo" onClick={() => scrollToSection('equipo')} className={activeSection === 'equipo' ? 'active' : ''}>{t.nav.equipo}</a></li>
+            <li><a href="#contacto" onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? 'active' : ''}>{t.nav.contacto}</a></li>
+            <li className="language-switcher">
+              <button 
+                className={`lang-btn ${language === 'es' ? 'active' : ''}`}
+                onClick={() => setLanguage('es')}
+              >
+                ES
+              </button>
+              <span className="lang-separator">|</span>
+              <button 
+                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => setLanguage('en')}
+              >
+                EN
+              </button>
+            </li>
           </ul>
           
-          <div className="nav-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div className={`nav-toggle ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <span></span>
             <span></span>
             <span></span>
@@ -472,30 +530,57 @@ function App() {
         </nav>
       </header>
       
-      {/* Hero Section */}
+      {/* Hero Section - Minimal & Impactful */}
       <section id="inicio" className="hero" ref={heroRef}>
         <div className="hero-background">
-          <div className="particles"></div>
+          <div className="hero-gradient"></div>
         </div>
+        
+        {/* Partículas flotantes decorativas */}
+        <div className="hero-particles">
+          <div className="particle particle-1"></div>
+          <div className="particle particle-2"></div>
+          <div className="particle particle-3"></div>
+          <div className="particle particle-4"></div>
+          <div className="particle particle-5"></div>
+          <div className="particle particle-6"></div>
+        </div>
+        
+        {/* Elementos geométricos flotantes */}
+        <div className="hero-geometric">
+          <div className="geometric-shape shape-1"></div>
+          <div className="geometric-shape shape-2"></div>
+          <div className="geometric-shape shape-3"></div>
+        </div>
+        
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">Portfolio Profesional de Desarrollo</h1>
-            <div className="hero-subtitle">
-              <span className="typewriter">{typewriterText}</span>
-              <span className="cursor-blink">|</span>
+            <div className="hero-intro">
+              <span className="hero-greeting">{t.hero.greeting}</span>
+              <h1 className="hero-title">
+                <span className="title-main">TIKNO</span>
+                <span className="title-accent">{t.hero.studio}</span>
+              </h1>
             </div>
-            <p className="hero-description">
-              En TIKNO transformamos ideas en soluciones digitales innovadoras. 
-              Especializados en desarrollo web, aplicaciones móviles y software personalizado 
-              para pequeñas empresas y emprendedores.
-            </p>
-            <div className="hero-cta">
-              <button className="btn btn-primary" onClick={() => scrollToSection('proyectos')}>
-                Explorar proyectos
+            
+            <div className="hero-mission">
+              <p className="mission-text">
+                {t.hero.mission}
+              </p>
+            </div>
+            
+            <div className="hero-actions">
+              <button className="btn-minimal btn-primary" onClick={() => scrollToSection('proyectos')}>
+                {t.hero.btnProjects}
               </button>
-              <button className="btn btn-secondary" onClick={() => scrollToSection('contacto')}>
-                Contactar
+              <button className="btn-minimal btn-outline" onClick={() => scrollToSection('contacto')}>
+                {t.hero.btnContact}
               </button>
+            </div>
+            
+            <div className="hero-scroll">
+              <div className="scroll-line"></div>
+              <span className="scroll-label">{t.hero.scroll}</span>
             </div>
           </div>
         </div>
@@ -569,10 +654,8 @@ function App() {
             {technologies.map(tech => (
               <div key={tech.name} className="tech-card">
                 <div className="tech-icon">{tech.icon}</div>
-                <div className="tech-content">
-                  <h3 className="tech-name">{tech.name}</h3>
-                  <p className="tech-description">{tech.description}</p>
-                </div>
+                <h3 className="tech-name">{tech.name}</h3>
+                <p className="tech-description">{tech.description}</p>
               </div>
             ))}
           </div>
@@ -594,19 +677,17 @@ function App() {
                 <div className="pricing-header">
                   <div className="pricing-icon">{plan.icon}</div>
                 </div>
-                <div className="pricing-content">
-                  <h3 className="pricing-name">{plan.name}</h3>
-                  <div className="pricing-price">{plan.price}</div>
-                  <p className="pricing-description">{plan.description}</p>
-                  <ul className="pricing-features">
-                    {plan.features.map(feature => (
-                      <li key={feature}>
-                        <span className="feature-check">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <h3 className="pricing-name">{plan.name}</h3>
+                <div className="pricing-price">{plan.price}</div>
+                <p className="pricing-description">{plan.description}</p>
+                <ul className="pricing-features">
+                  {plan.features.map(feature => (
+                    <li key={feature}>
+                      <span className="feature-check">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
                 <div className="pricing-action">
                   <button className="btn btn-primary pricing-btn">
                     Solicitar Cotización
@@ -630,15 +711,13 @@ function App() {
             {teamMembers.map(member => (
               <div key={member.name} className="team-card">
                 <div className="team-avatar">{member.avatar}</div>
-                <div className="team-content">
-                  <h3 className="team-name">{member.name}</h3>
-                  <div className="team-role">{member.role}</div>
-                  <p className="team-description">{member.description}</p>
-                  <div className="team-skills">
-                    {member.skills.map(skill => (
-                      <span key={skill} className="skill-tag">{skill}</span>
-                    ))}
-                  </div>
+                <h3 className="team-name">{member.name}</h3>
+                <div className="team-role">{member.role}</div>
+                <p className="team-description">{member.description}</p>
+                <div className="team-skills">
+                  {member.skills.map(skill => (
+                    <span key={skill} className="skill-tag">{skill}</span>
+                  ))}
                 </div>
               </div>
             ))}

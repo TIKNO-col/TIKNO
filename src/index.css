@@ -8,13 +8,13 @@
 }
 
 :root {
-  /* Paleta de colores Luca Davincci */
-  --color-brown-dark: #654922;
-  --color-gold-mustard: #956E2F;
-  --color-beige-gold: #B68B4B;
-  --color-green-gray: #4D574E;
-  --color-gray-carbon: #303531;
-  --color-black-green: #202221;
+  /* Paleta de colores ultra vibrante - Tema Neon Futurista */
+  --color-brown-dark: #0A0A0F;
+  --color-gold-mustard: #8B5CF6;
+  --color-beige-gold: #F97316;
+  --color-green-gray: #06D6A0;
+  --color-gray-carbon: #1E1B4B;
+  --color-black-green: #0F0F23;
   
   /* Variables adicionales */
   --font-primary: 'Poppins', sans-serif;
@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 14px; /* Reducido de 16px para que no se vea tan grande */
 }
 
 body {
@@ -93,39 +93,45 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 12px 24px;
-  border: none;
+  border: 2px solid transparent;
   border-radius: var(--border-radius);
   font-family: var(--font-primary);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(10px);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-gold-mustard), var(--color-beige-gold));
+  background: linear-gradient(45deg, var(--color-gold-mustard), var(--color-beige-gold));
   color: var(--color-brown-dark);
-  box-shadow: var(--shadow-medium);
+  border-color: var(--color-gold-mustard);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-strong);
-  filter: brightness(1.1);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.4), 0 8px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.2);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: linear-gradient(45deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
   color: var(--color-beige-gold);
-  border: 2px solid var(--color-gold-mustard);
+  border: 2px solid var(--color-green-gray);
+  box-shadow: 0 0 15px rgba(78, 205, 196, 0.2);
 }
 
 .btn-secondary:hover {
-  background: var(--color-gold-mustard);
+  background: linear-gradient(45deg, var(--color-green-gray), var(--color-beige-gold));
   color: var(--color-brown-dark);
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(78, 205, 196, 0.5), 0 0 50px rgba(78, 205, 196, 0.3);
 }
 
 /* Animaciones base */
