@@ -1,7 +1,7 @@
 {
-  "name": "nicorghost-portfolio",
+  "name": "tikno-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio profesional moderno para NicoRGhost",
+  "description": "Portfolio profesional premium para TIKNO - Innovación cercana, software a tu alcance",
   "main": "index.js",
   "homepage": "https://nicolas2601.github.io/pagina-react",
   "scripts": {
@@ -37,7 +37,7 @@
     "animejs",
     "web-development"
   ],
-  "author": "NicoRGhost",
+  "author": "TIKNO - Nicolas Moreno & Esteban Lozano",
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^6.3.0"
