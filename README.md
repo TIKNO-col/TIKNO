@@ -1,6 +1,7 @@
-# NicoRGhost Portfolio 🚀
+# TIKNO Portfolio 🚀
 
 Una página web moderna y profesional creada con React y Anime.js, diseñada para mostrar proyectos de desarrollo web de manera elegante e interactiva.
+https://nicolas2601.github.io/pagina-react/
 
 ## ✨ Características
 
