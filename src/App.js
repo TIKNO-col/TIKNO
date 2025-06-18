@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import anime from 'animejs';
+import emailjs from '@emailjs/browser';
 import './App.css';
 function App() {
   const [activeSection, setActiveSection] = useState('inicio');
@@ -9,7 +10,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [typewriterText, setTypewriterText] = useState('');
   const [language, setLanguage] = useState('es');
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    title: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
   const heroRef = useRef(null);
 
   
@@ -30,6 +38,19 @@ function App() {
         btnProjects: 'Ver Proyectos',
         btnContact: 'Contactar',
         scroll: 'Scroll'
+      },
+      contact: {
+        title: 'Contacto',
+        subtitle: '¿Tienes un proyecto en mente? Hablemos y hagamos realidad tu idea',
+        info: 'Información de Contacto',
+        namePlaceholder: 'Tu nombre',
+        emailPlaceholder: 'Tu email',
+        subjectPlaceholder: 'Asunto',
+        messagePlaceholder: 'Tu mensaje',
+        sendButton: 'Enviar Mensaje',
+        sending: 'Enviando...',
+        successMessage: '¡Mensaje enviado correctamente!',
+        errorMessage: 'Error al enviar el mensaje. Inténtalo de nuevo.'
       }
     },
     en: {
@@ -48,6 +69,19 @@ function App() {
         btnProjects: 'View Projects',
         btnContact: 'Contact',
         scroll: 'Scroll'
+      },
+      contact: {
+        title: 'Contact',
+        subtitle: 'Do you have a project in mind? Let\'s talk and make your idea a reality',
+        info: 'Contact Information',
+        namePlaceholder: 'Your name',
+        emailPlaceholder: 'Your email',
+        subjectPlaceholder: 'Subject',
+        messagePlaceholder: 'Your message',
+        sendButton: 'Send Message',
+        sending: 'Sending...',
+        successMessage: 'Message sent successfully!',
+        errorMessage: 'Error sending message. Please try again.'
       }
     }
   };
@@ -56,6 +90,79 @@ function App() {
   const projectsRef = useRef(null);
   const cursorRef = useRef(null);
   const cursorTrailRef = useRef(null);
+
+  // EmailJS Configuration
+  const EMAILJS_SERVICE_ID = 'service_dsc3mv6';
+  const EMAILJS_TEMPLATE_ID = 'template_13ce9d7';
+  const EMAILJS_PUBLIC_KEY = 'KGXORJXBD5OISg81s'; // Necesitarás añadir tu clave pública
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  // Email sending function
+   const sendEmail = async (formData) => {
+     try {
+       const currentTime = new Date().toLocaleString('es-ES', {
+         year: 'numeric',
+         month: 'long',
+         day: 'numeric',
+         hour: '2-digit',
+         minute: '2-digit'
+       });
+       
+       const result = await emailjs.send(
+         EMAILJS_SERVICE_ID,
+         EMAILJS_TEMPLATE_ID,
+         {
+           name: formData.name,
+           email: formData.email,
+           title: formData.title,
+           message: formData.message,
+           time: currentTime,
+         }
+       );
+       console.log('Email sent successfully:', result);
+       return { success: true, message: t.contact.successMessage };
+     } catch (error) {
+       console.error('Error sending email:', error);
+       return { success: false, message: t.contact.errorMessage };
+     }
+   };
+
+   // Handle form input changes
+   const handleInputChange = (e) => {
+     const { name, value } = e.target;
+     setFormData(prev => ({
+       ...prev,
+       [name]: value
+     }));
+   };
+
+   // Handle form submission
+   const handleSubmit = async (e) => {
+     e.preventDefault();
+     setIsSubmitting(true);
+     setSubmitMessage('');
+
+     const result = await sendEmail(formData);
+     
+     setSubmitMessage(result.message);
+     setIsSubmitting(false);
+
+     if (result.success) {
+       // Reset form on success
+       setFormData({
+         name: '',
+         email: '',
+         title: '',
+         message: ''
+       });
+       // Clear success message after 5 seconds
+       setTimeout(() => setSubmitMessage(''), 5000);
+     }
+   };
   
   const typewriterTexts = [
     'Creando experiencias digitales excepcionales',
@@ -728,14 +835,14 @@ function App() {
       {/* Contacto Section */}
       <section id="contacto" className="section">
         <div className="container">
-          <h2 className="section-title">Contacto</h2>
+          <h2 className="section-title">{t.contact.title}</h2>
           <p className="section-subtitle">
-            ¿Tienes un proyecto en mente? Hablemos y hagamos realidad tu idea
+            {t.contact.subtitle}
           </p>
           
           <div className="contact-content">
             <div className="contact-info">
-              <h3>Información de Contacto</h3>
+              <h3>{t.contact.info}</h3>
               <div className="contact-item">
                 <span className="contact-icon">📧</span>
                 <div>
@@ -765,21 +872,63 @@ function App() {
               </div>
             </div>
             
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              {submitMessage && (
+                <div className={`form-message ${submitMessage.includes('Error') || submitMessage.includes('error') ? 'error' : 'success'}`}>
+                  {submitMessage}
+                </div>
+              )}
+              
               <div className="form-group">
-                <input type="text" placeholder="Tu nombre" required />
+                <input 
+                  type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder={t.contact.namePlaceholder} 
+                  required 
+                  disabled={isSubmitting}
+                />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Tu email" required />
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder={t.contact.emailPlaceholder} 
+                  required 
+                  disabled={isSubmitting}
+                />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="Asunto" required />
+                <input 
+                  type="text" 
+                  name="title"
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  placeholder={t.contact.subjectPlaceholder} 
+                  required 
+                  disabled={isSubmitting}
+                />
               </div>
               <div className="form-group">
-                <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder={t.contact.messagePlaceholder} 
+                  rows="5" 
+                  required
+                  disabled={isSubmitting}
+                ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">
-                Enviar Mensaje
+              <button 
+                type="submit" 
+                className="btn btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? t.contact.sending : t.contact.sendButton}
               </button>
             </form>
           </div>
