@@ -104,6 +104,12 @@ function App() {
   // Email sending function
    const sendEmail = async (formData) => {
      try {
+       // Verificar que las variables de entorno estén disponibles
+       if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+         console.error('EmailJS configuration missing');
+         return { success: false, message: 'Error de configuración. Por favor contacta al administrador.' };
+       }
+       
        const currentTime = new Date().toLocaleString('es-ES', {
          year: 'numeric',
          month: 'long',
@@ -112,22 +118,27 @@ function App() {
          minute: '2-digit'
        });
        
+       const templateParams = {
+         name: formData.name,
+         email: formData.email,
+         title: formData.title,
+         message: formData.message,
+         time: currentTime,
+       };
+       
+       console.log('Sending email with params:', templateParams);
+       
        const result = await emailjs.send(
          EMAILJS_SERVICE_ID,
          EMAILJS_TEMPLATE_ID,
-         {
-           name: formData.name,
-           email: formData.email,
-           title: formData.title,
-           message: formData.message,
-           time: currentTime,
-         }
+         templateParams
        );
+       
        console.log('Email sent successfully:', result);
        return { success: true, message: t.contact.successMessage };
      } catch (error) {
        console.error('Error sending email:', error);
-       return { success: false, message: t.contact.errorMessage };
+       return { success: false, message: t.contact.errorMessage + ': ' + error.message };
      }
    };
 
@@ -143,25 +154,40 @@ function App() {
    // Handle form submission
    const handleSubmit = async (e) => {
      e.preventDefault();
+     e.stopPropagation();
+     
+     // Prevent multiple submissions
+     if (isSubmitting) {
+       return false;
+     }
+     
      setIsSubmitting(true);
      setSubmitMessage('');
 
-     const result = await sendEmail(formData);
-     
-     setSubmitMessage(result.message);
-     setIsSubmitting(false);
-
-     if (result.success) {
-       // Reset form on success
-       setFormData({
-         name: '',
-         email: '',
-         title: '',
-         message: ''
-       });
-       // Clear success message after 5 seconds
-       setTimeout(() => setSubmitMessage(''), 5000);
+     try {
+       const result = await sendEmail(formData);
+       
+       setSubmitMessage(result.message);
+       
+       if (result.success) {
+         // Reset form on success
+         setFormData({
+           name: '',
+           email: '',
+           title: '',
+           message: ''
+         });
+         // Clear success message after 5 seconds
+         setTimeout(() => setSubmitMessage(''), 5000);
+       }
+     } catch (error) {
+       console.error('Form submission error:', error);
+       setSubmitMessage(t.contact.errorMessage);
+     } finally {
+       setIsSubmitting(false);
      }
+     
+     return false;
    };
   
   const typewriterTexts = [
@@ -872,7 +898,7 @@ function App() {
               </div>
             </div>
             
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form className="contact-form" onSubmit={handleSubmit} noValidate>
               {submitMessage && (
                 <div className={`form-message ${submitMessage.includes('Error') || submitMessage.includes('error') ? 'error' : 'success'}`}>
                   {submitMessage}
