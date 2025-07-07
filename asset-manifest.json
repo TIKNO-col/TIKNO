@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TIKNO-/static/css/main.09965440.css",
+    "main.js": "/TIKNO-/static/js/main.b47d9f36.js",
+    "static/js/453.8ab77f0e.chunk.js": "/TIKNO-/static/js/453.8ab77f0e.chunk.js",
+    "index.html": "/TIKNO-/index.html",
+    "main.09965440.css.map": "/TIKNO-/static/css/main.09965440.css.map",
+    "main.b47d9f36.js.map": "/TIKNO-/static/js/main.b47d9f36.js.map",
+    "453.8ab77f0e.chunk.js.map": "/TIKNO-/static/js/453.8ab77f0e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09965440.css",
+    "static/js/main.b47d9f36.js"
+  ]
+}
