@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio profesional premium para TIKNO - Innovación cercana, software a tu alcance",
   "main": "index.js",
-  "homepage": "https://nicolas2601.github.io/pagina-react",
+  "homepage": "https://tikno-col.github.io/TIKNO-/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -17,7 +17,7 @@
     "animejs": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "browserslist": {
