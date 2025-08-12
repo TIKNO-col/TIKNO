@@ -88,8 +88,7 @@ function App() {
 
   const t = translations[language];
   const projectsRef = useRef(null);
-  const cursorRef = useRef(null);
-  const cursorTrailRef = useRef(null);
+  // Referencias del cursor eliminadas
 
   // EmailJS Configuration
   const EMAILJS_SERVICE_ID = 'service_dsc3mv6';
@@ -197,88 +196,63 @@ function App() {
   ];
   
   const projectCategories = [
-    'Todos', 'Sostenibilidad', 'Administración', 'Creatividad', 'Analytics', 
-    'Social', 'Seguridad', 'E-commerce', 'Educación', 'Salud', 'Fintech', 'IoT', 'Gaming'
+    'Todos', 'Desarrollo Web', 'E-commerce', 'Landing Page', 'En Desarrollo'
   ];
   
   const projects = [
     {
       id: 1,
-      title: 'EcoTech Solutions',
-      category: 'Sostenibilidad',
-      technologies: ['React', 'Node.js', 'MongoDB', 'AWS', 'IoT'],
+      title: 'TIKNO Portfolio',
+      category: 'Desarrollo Web',
+      technologies: ['React', 'Anime.js', 'CSS3', 'JavaScript', 'HTML5'],
       status: '✅ COMPLETADO',
-      description: 'Plataforma integral para monitoreo ambiental y gestión sostenible de recursos.',
-      image: '/api/placeholder/400/300',
+      description: 'Una página web moderna y profesional creada con React y Anime.js, diseñada para mostrar proyectos de desarrollo web de manera elegante e interactiva.',
+      image: process.env.PUBLIC_URL + '/Tikno.jpg',
       year: '2024',
-      features: ['Dashboard en tiempo real', 'Sensores IoT', 'Análisis predictivo', 'Reportes automáticos'],
-      liveUrl: '#',
-      githubUrl: '#'
+      features: ['Diseño Moderno', 'Animaciones Avanzadas', 'Responsive Design', 'Multiidioma', 'Portfolio Interactivo'],
+      liveUrl: 'https://tikno-col.github.io/TIKNO-',
+      githubUrl: 'https://github.com/TIKNO-col'
     },
     {
       id: 2,
-      title: 'CloudNine Dashboard',
-      category: 'Analytics',
-      technologies: ['Vue.js', 'Express', 'PostgreSQL', 'TensorFlow', 'Redis'],
-      status: '⏳ EN PROGRESO',
-      description: 'Dashboard avanzado para análisis de datos empresariales con IA integrada.',
-      image: '/api/placeholder/400/300',
+      title: 'E-commerce TIKNO',
+      category: 'E-commerce',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Bootstrap'],
+      status: '✅ COMPLETADO',
+      description: 'Plataforma de comercio electrónico completa con gestión de productos, carrito de compras, sistema de pagos y panel de administración.',
+      image: process.env.PUBLIC_URL + '/ecommerce1.jpg',
+      images: [process.env.PUBLIC_URL + '/ecommerce1.jpg', process.env.PUBLIC_URL + '/ecommerce2.jpg', process.env.PUBLIC_URL + '/ecommerce3.jpg'],
       year: '2024',
-      features: ['Machine Learning', 'Visualización avanzada', 'API REST', 'Cache inteligente'],
-      liveUrl: '#',
-      githubUrl: '#'
+      features: ['Carrito de compras', 'Sistema de pagos', 'Panel de administración', 'Gestión de inventario', 'Responsive design'],
+      liveUrl: 'https://ecommerce-tiknowow.vercel.app',
+      backendUrl: 'https://ecommerce-tikno-project.onrender.com',
+      githubUrl: 'https://github.com/TIKNO-col'
     },
     {
       id: 3,
-      title: 'PixelCraft Studio',
-      category: 'Creatividad',
-      technologies: ['React', 'Three.js', 'Firebase', 'WebGL', 'Blender'],
-      status: '🎨 Creatividad',
-      description: 'Estudio digital para creación y edición de contenido 3D interactivo.',
-      image: '/api/placeholder/400/300',
+      title: 'Blythe Dolls Landing',
+      category: 'Landing Page',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Responsive Design'],
+      status: '✅ COMPLETADO',
+      description: 'Landing page moderna y elegante para Blythe Dolls, una tienda especializada en muñecas únicas y personalizadas. El sitio web presenta una experiencia visual atractiva con galería de productos, sistema de suscripción a newsletter y diseño completamente responsivo.',
+      image: process.env.PUBLIC_URL + '/landingpage.jpg',
       year: '2024',
-      features: ['Editor 3D', 'Renderizado en tiempo real', 'Colaboración online', 'Export múltiple'],
-      liveUrl: '#',
-      githubUrl: '#'
+      features: ['Experiencia visual atractiva', 'Galería de productos', 'Newsletter subscription', 'Diseño responsivo', 'Muñecas personalizadas'],
+      liveUrl: 'https://landing-blythe-tikno.vercel.app',
+      githubUrl: 'https://github.com/TIKNO-col'
     },
     {
       id: 4,
-      title: 'DataFlow Analytics',
-      category: 'Analytics',
-      technologies: ['Angular', 'Python', 'Redis', 'Kafka', 'Spark'],
-      status: '📊 Analytics',
-      description: 'Sistema de análisis de big data para empresas con procesamiento en tiempo real.',
-      image: '/api/placeholder/400/300',
+      title: 'Próximo Proyecto',
+      category: 'En Desarrollo',
+      technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
+      status: '🚧 EN DESARROLLO',
+      description: 'Nuevo proyecto en desarrollo que incorporará las últimas tecnologías y mejores prácticas de desarrollo web.',
+      image: process.env.PUBLIC_URL + '/logoTIKNO.jpg',
       year: '2024',
-      features: ['Big Data', 'Streaming', 'Visualización', 'APIs escalables'],
+      features: ['Próximamente', 'Tecnologías modernas', 'Mejores prácticas', 'Innovación'],
       liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      id: 5,
-      title: 'MindBridge Connect',
-      category: 'Social',
-      technologies: ['React Native', 'GraphQL', 'ML', 'WebRTC'],
-      status: '🔬 BETA',
-      description: 'Plataforma de comunicación inteligente con funciones de IA para equipos remotos.',
-      image: '/api/placeholder/400/300',
-      year: '2024',
-      features: ['Video conferencias', 'IA conversacional', 'Traducción automática', 'Análisis de sentimientos'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      id: 6,
-      title: 'TechVault Security',
-      category: 'Seguridad',
-      technologies: ['Next.js', 'Blockchain', 'Docker', 'Supabase', 'SonarQube'],
-      status: '✅ COMPLETADO',
-      description: 'Suite de seguridad empresarial con blockchain y análisis de vulnerabilidades.',
-      image: '/api/placeholder/400/300',
-      year: '2024',
-      features: ['Blockchain security', 'Análisis de código', 'Monitoreo 24/7', 'Compliance automático'],
-      liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/TIKNO-col'
     }
   ];
   
@@ -294,24 +268,54 @@ function App() {
       description: 'Runtime de JavaScript para desarrollo backend escalable'
     },
     {
-      name: 'MongoDB',
-      icon: '🍃',
-      description: 'Base de datos NoSQL flexible y de alto rendimiento'
-    },
-    {
-      name: 'AWS',
-      icon: '☁️',
-      description: 'Servicios en la nube para infraestructura robusta'
-    },
-    {
       name: 'Python',
       icon: '🐍',
       description: 'Lenguaje versátil para IA, ML y desarrollo backend'
     },
     {
-      name: 'React Native',
-      icon: '📱',
-      description: 'Framework para aplicaciones móviles multiplataforma'
+      name: 'JavaScript',
+      icon: '🟨',
+      description: 'Lenguaje de programación dinámico para web'
+    },
+    {
+      name: 'Next.js',
+      icon: '▲',
+      description: 'Framework de React para aplicaciones web de producción'
+    },
+    {
+      name: 'Laravel',
+      icon: '🔴',
+      description: 'Framework PHP elegante para desarrollo web'
+    },
+    {
+      name: 'Django',
+      icon: '🎸',
+      description: 'Framework web de Python de alto nivel'
+    },
+    {
+      name: 'PostgreSQL',
+      icon: '🐘',
+      description: 'Base de datos relacional avanzada y confiable'
+    },
+    {
+      name: 'Docker',
+      icon: '🐳',
+      description: 'Plataforma de contenedores para desarrollo y despliegue'
+    },
+    {
+      name: 'Azure',
+      icon: '☁️',
+      description: 'Servicios en la nube de Microsoft para infraestructura robusta'
+    },
+    {
+      name: 'MongoDB',
+      icon: '🍃',
+      description: 'Base de datos NoSQL flexible y de alto rendimiento'
+    },
+    {
+      name: 'Bootstrap',
+      icon: '🅱️',
+      description: 'Framework CSS para desarrollo responsive rápido'
     }
   ];
   
@@ -344,14 +348,14 @@ function App() {
     {
       name: 'Nicolas Moreno',
       role: 'Co-Fundador & Full Stack Developer',
-      skills: ['React', 'Node.js', 'AWS', 'MongoDB'],
+      skills: ['React', 'Node.js','MongoDB'],
       avatar: '👨‍💻',
       description: 'Especialista en desarrollo frontend y arquitectura de aplicaciones'
     },
     {
       name: 'Esteban Lozano',
       role: 'Co-Fundador & Backend Developer',
-      skills: ['Python', 'PostgreSQL', 'Docker', 'DevOps'],
+      skills: ['Python', 'PostgreSQL', 'Docker',],
       avatar: '👨‍💻',
       description: 'Experto en backend, bases de datos y infraestructura cloud'
     }
@@ -411,26 +415,7 @@ function App() {
     }
   }, [isLoading]);
   
-  // Cursor personalizado
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    const cursorTrail = cursorTrailRef.current;
-    
-    const moveCursor = (e) => {
-      if (cursor && cursorTrail) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        setTimeout(() => {
-          cursorTrail.style.left = e.clientX + 'px';
-          cursorTrail.style.top = e.clientY + 'px';
-        }, 100);
-      }
-    };
-    
-    document.addEventListener('mousemove', moveCursor);
-    return () => document.removeEventListener('mousemove', moveCursor);
-  }, []);
+  // Cursor personalizado eliminado
   
   // Efecto de scroll reveal mejorado
   useEffect(() => {
@@ -620,9 +605,7 @@ function App() {
   
   return (
     <div className="App">
-      {/* Cursor personalizado */}
-      <div ref={cursorRef} className="custom-cursor"></div>
-      <div ref={cursorTrailRef} className="custom-cursor-trail"></div>
+      {/* Cursor personalizado eliminado */}
       
       {/* Header/Navigation */}
       <header className="header">
@@ -748,9 +731,7 @@ function App() {
             {filteredProjects.map(project => (
               <div key={project.id} className="project-card" onClick={() => openProjectModal(project)}>
                 <div className="project-image">
-                  <div className="project-image-placeholder">
-                    <span className="project-icon">💻</span>
-                  </div>
+                  <img src={project.image} alt={project.title} className="project-img" />
                   <div className="project-overlay">
                     <button className="project-view-btn">Ver Proyecto</button>
                   </div>
@@ -873,7 +854,7 @@ function App() {
                 <span className="contact-icon">📧</span>
                 <div>
                   <strong>Email</strong>
-                  <p>contacto@tikno.dev</p>
+                  <p>nm5571762@gmail.com</p>
                 </div>
               </div>
               <div className="contact-item">
@@ -892,9 +873,7 @@ function App() {
               </div>
               
               <div className="social-links">
-                <a href="#" className="social-link">GitHub</a>
-                <a href="#" className="social-link">LinkedIn</a>
-                <a href="#" className="social-link">Twitter</a>
+                <a href="https://github.com/TIKNO-col" className="social-link" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
             
@@ -981,7 +960,7 @@ function App() {
             </div>
             <div className="footer-contact">
               <h4>Contacto</h4>
-              <p>contacto@tikno.dev</p>
+              <p>nm5571762@gmail.com</p>
               <p>+57 (350) 232-8517</p>
             </div>
           </div>
@@ -1006,9 +985,7 @@ function App() {
               
               <div className="modal-body">
                 <div className="modal-image">
-                  <div className="modal-image-placeholder">
-                    <span className="modal-icon">💻</span>
-                  </div>
+                  <img src={selectedProject.image} alt={selectedProject.title} className="modal-img" />
                 </div>
                 
                 <div className="modal-info">
