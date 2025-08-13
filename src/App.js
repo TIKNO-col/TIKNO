@@ -259,7 +259,7 @@ function App() {
       image: process.env.PUBLIC_URL + '/erp.jpg',
       year: '2025',
       features: ['Gestión de inventario', 'Compras y ventas', 'Pagos y facturación', 'Reportes y análisis', 'Seguridad y control de acceso'],
-      liveUrl: 'https://erptikno.vercel.app/',
+      liveUrl: 'https://erptikno-flame.vercel.app/',
       githubUrl: 'https://github.com/TIKNO-col'
     },
     {
