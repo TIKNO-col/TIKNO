@@ -233,6 +233,8 @@ function App() {
       year: '2025',
       features: ['Carrito de compras', 'Sistema de pagos', 'Panel de administración', 'Gestión de inventario', 'Responsive design'],
       liveUrl: 'https://ecommerce-tiknowow.vercel.app',
+      // ⚠️ IMPORTANTE: Activar backend antes de usar: https://ecommerce-tikno-project.onrender.com
+      // El servicio se suspende cada 15 minutos en Render (plan gratuito)
       backendUrl: 'https://ecommerce-tikno-project.onrender.com',
       githubUrl: 'https://github.com/TIKNO-col'
     },
@@ -260,6 +262,9 @@ function App() {
       year: '2025',
       features: ['Gestión de inventario', 'Compras y ventas', 'Pagos y facturación', 'Reportes y análisis', 'Seguridad y control de acceso'],
       liveUrl: 'https://erptikno-flame.vercel.app/',
+      // ⚠️ IMPORTANTE: Activar backend antes de usar: https://erp-tikno.onrender.com
+      // El servicio se suspende cada 15 minutos en Render (plan gratuito)
+      backendUrl: 'https://erp-tikno.onrender.com',
       githubUrl: 'https://github.com/TIKNO-col'
     },
     {
@@ -800,6 +805,24 @@ function App() {
           <p className="section-subtitle">
             Descubre las soluciones innovadoras que hemos desarrollado para nuestros clientes
           </p>
+          
+          {/* Aviso importante sobre backends */}
+          <div className="backend-notice">
+            <div className="notice-icon">⚠️</div>
+            <div className="notice-content">
+              <h4>Importante: Activación de Servicios Backend</h4>
+              <p>Para el correcto funcionamiento del <strong>ERP</strong> y <strong>eCommerce</strong>, es necesario activar primero los backends:</p>
+              <div className="backend-links">
+                <a href="https://erp-tikno.onrender.com" target="_blank" rel="noopener noreferrer" className="backend-link">
+                  🔗 Activar ERP Backend
+                </a>
+                <a href="https://ecommerce-tikno-project.onrender.com" target="_blank" rel="noopener noreferrer" className="backend-link">
+                  🔗 Activar eCommerce Backend
+                </a>
+              </div>
+              <small>Los servicios se suspenden cada 15 minutos en Render (plan gratuito)</small>
+            </div>
+          </div>
           
           {/* Controles de filtrado y búsqueda */}
            <div className="project-controls">

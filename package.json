@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio profesional premium para TIKNO - Innovación cercana, software a tu alcance",
   "main": "index.js",
-  "homepage": "https://tikno-col.github.io/TIKNO-/",
+  "homepage": "https://tikno-col.github.io/TIKNO/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -22,6 +22,15 @@ https://tikno-col.github.io/TIKNO-/
 
 ## 🚀 Instalación y Configuración
 
+### ⚠️ IMPORTANTE: Activación de Backends
+
+**ANTES DE USAR LA APLICACIÓN**, es crucial activar los siguientes servicios backend:
+
+- **ERP Backend**: https://erp-tikno.onrender.com
+- **eCommerce Backend**: https://ecommerce-tikno-project.onrender.com
+
+> 🔄 **Nota**: Estos servicios se suspenden automáticamente cada 15 minutos en Render por el plan gratuito. Es necesario visitarlos para activarlos antes de usar las funcionalidades del ERP y eCommerce en el portfolio.
+
 ### Prerrequisitos
 
 - Node.js (versión 14 o superior)

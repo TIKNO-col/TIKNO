@@ -1025,6 +1025,103 @@
 }
 
 /* ===== PROYECTOS ===== */
+/* Aviso de backends */
+.backend-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+  border: 2px solid rgba(255, 193, 7, 0.3);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backend-notice:hover {
+  border-color: rgba(255, 193, 7, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.2);
+}
+
+.notice-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+.notice-content h4 {
+  color: var(--color-beige-gold);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.notice-content p {
+  color: rgba(182, 139, 75, 0.9);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.backend-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.backend-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(149, 110, 47, 0.2);
+  color: var(--color-beige-gold);
+  text-decoration: none;
+  border-radius: calc(var(--border-radius) / 2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(149, 110, 47, 0.3);
+}
+
+.backend-link:hover {
+  background: rgba(149, 110, 47, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(149, 110, 47, 0.3);
+  border-color: rgba(149, 110, 47, 0.5);
+}
+
+.notice-content small {
+  color: rgba(182, 139, 75, 0.7);
+  font-style: italic;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@media (max-width: 768px) {
+  .backend-notice {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .backend-links {
+    justify-content: center;
+  }
+  
+  .backend-link {
+    flex: 1;
+    justify-content: center;
+    min-width: 140px;
+  }
+}
+
 /* Controles de búsqueda y ordenamiento */
 .project-controls {
   display: flex;
