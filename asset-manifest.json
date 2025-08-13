@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/TIKNO-/static/css/main.3b77e778.css",
-    "main.js": "/TIKNO-/static/js/main.d5225fb1.js",
+    "main.js": "/TIKNO-/static/js/main.d8b3a716.js",
     "static/js/453.8ab77f0e.chunk.js": "/TIKNO-/static/js/453.8ab77f0e.chunk.js",
     "index.html": "/TIKNO-/index.html",
     "main.3b77e778.css.map": "/TIKNO-/static/css/main.3b77e778.css.map",
-    "main.d5225fb1.js.map": "/TIKNO-/static/js/main.d5225fb1.js.map",
+    "main.d8b3a716.js.map": "/TIKNO-/static/js/main.d8b3a716.js.map",
     "453.8ab77f0e.chunk.js.map": "/TIKNO-/static/js/453.8ab77f0e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3b77e778.css",
-    "static/js/main.d5225fb1.js"
+    "static/js/main.d8b3a716.js"
   ]
 }
