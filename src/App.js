@@ -5,7 +5,15 @@ import './App.css';
 function App() {
   const [activeSection, setActiveSection] = useState('inicio');
   const [selectedProject, setSelectedProject] = useState(null);
-  const [projectFilter, setProjectFilter] = useState('Todos');
+  const [projectFilter, setProjectFilter] = useState(() => {
+    return localStorage.getItem('tikno-project-filter') || 'Todos';
+  });
+  const [projectSearch, setProjectSearch] = useState(() => {
+    return localStorage.getItem('tikno-project-search') || '';
+  });
+  const [projectSort, setProjectSort] = useState(() => {
+    return localStorage.getItem('tikno-project-sort') || 'newest';
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [typewriterText, setTypewriterText] = useState('');
@@ -196,7 +204,7 @@ function App() {
   ];
   
   const projectCategories = [
-    'Todos', 'Desarrollo Web', 'E-commerce', 'Landing Page', 'En Desarrollo'
+    'Todos', 'Desarrollo Web', 'E-commerce', 'Landing Page', 'Aplicacion web de administracion', 'En Desarrollo'
   ];
   
   const projects = [
@@ -208,7 +216,7 @@ function App() {
       status: '✅ COMPLETADO',
       description: 'Una página web moderna y profesional creada con React y Anime.js, diseñada para mostrar proyectos de desarrollo web de manera elegante e interactiva.',
       image: process.env.PUBLIC_URL + '/Tikno.jpg',
-      year: '2024',
+      year: '2025',
       features: ['Diseño Moderno', 'Animaciones Avanzadas', 'Responsive Design', 'Multiidioma', 'Portfolio Interactivo'],
       liveUrl: 'https://tikno-col.github.io/TIKNO-',
       githubUrl: 'https://github.com/TIKNO-col'
@@ -222,7 +230,7 @@ function App() {
       description: 'Plataforma de comercio electrónico completa con gestión de productos, carrito de compras, sistema de pagos y panel de administración.',
       image: process.env.PUBLIC_URL + '/ecommerce1.jpg',
       images: [process.env.PUBLIC_URL + '/ecommerce1.jpg', process.env.PUBLIC_URL + '/ecommerce2.jpg', process.env.PUBLIC_URL + '/ecommerce3.jpg'],
-      year: '2024',
+      year: '2025',
       features: ['Carrito de compras', 'Sistema de pagos', 'Panel de administración', 'Gestión de inventario', 'Responsive design'],
       liveUrl: 'https://ecommerce-tiknowow.vercel.app',
       backendUrl: 'https://ecommerce-tikno-project.onrender.com',
@@ -236,20 +244,33 @@ function App() {
       status: '✅ COMPLETADO',
       description: 'Landing page moderna y elegante para Blythe Dolls, una tienda especializada en muñecas únicas y personalizadas. El sitio web presenta una experiencia visual atractiva con galería de productos, sistema de suscripción a newsletter y diseño completamente responsivo.',
       image: process.env.PUBLIC_URL + '/landingpage.jpg',
-      year: '2024',
+      year: '2025',
       features: ['Experiencia visual atractiva', 'Galería de productos', 'Newsletter subscription', 'Diseño responsivo', 'Muñecas personalizadas'],
       liveUrl: 'https://landing-blythe-tikno.vercel.app',
       githubUrl: 'https://github.com/TIKNO-col'
     },
     {
       id: 4,
+      title: 'ERP TIKNO',
+      category: 'Aplicacion web de administracion',
+      technologies: ['React', 'Django', 'PostgreSQL', 'JWT', 'tailwind'],
+      status: '✅ COMPLETADO',
+      description: 'ERP TIKNO es una aplicación web de administración de recursos empresariales que permite a las empresas gestionar sus operaciones de manera eficiente y efectiva. La aplicación ofrece una serie de módulos que abarcan desde la gestión de inventario y compras hasta la gestión de ventas y pagos. Además, la aplicación cuenta con un panel de control que permite a los usuarios monitorear y controlar sus operaciones en tiempo real.',
+      image: process.env.PUBLIC_URL + '/erp.jpg',
+      year: '2025',
+      features: ['Gestión de inventario', 'Compras y ventas', 'Pagos y facturación', 'Reportes y análisis', 'Seguridad y control de acceso'],
+      liveUrl: 'https://erptikno.vercel.app/',
+      githubUrl: 'https://github.com/TIKNO-col'
+    },
+    {
+      id: 5,
       title: 'Próximo Proyecto',
       category: 'En Desarrollo',
       technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
       status: '🚧 EN DESARROLLO',
       description: 'Nuevo proyecto en desarrollo que incorporará las últimas tecnologías y mejores prácticas de desarrollo web.',
       image: process.env.PUBLIC_URL + '/logoTIKNO.jpg',
-      year: '2024',
+      year: '2025',
       features: ['Próximamente', 'Tecnologías modernas', 'Mejores prácticas', 'Innovación'],
       liveUrl: '#',
       githubUrl: 'https://github.com/TIKNO-col'
@@ -441,19 +462,21 @@ function App() {
                 targets: '.filter-btn',
                 translateY: [30, 0],
                 opacity: [0, 1],
+                scale: [0.9, 1],
                 delay: anime.stagger(50),
                 duration: 600,
                 easing: 'easeOutExpo'
               });
             }, 100);
             
-            // Luego las tarjetas
+            // Luego las tarjetas con animación mejorada
             setTimeout(() => {
               anime({
                 targets: '.project-card',
                 translateY: [50, 0],
                 opacity: [0, 1],
-                delay: anime.stagger(120),
+                scale: [0.9, 1],
+                delay: anime.stagger(150),
                 duration: 800,
                 easing: 'easeOutExpo'
               });
@@ -549,11 +572,79 @@ function App() {
       titleObserver.disconnect();
     };
   }, []);
-  
-  // Filtrar proyectos
-  const filteredProjects = projectFilter === 'Todos' 
-    ? projects 
-    : projects.filter(project => project.category === projectFilter);
+
+  // Filtrar y buscar proyectos
+  const filteredProjects = projects
+    .filter(project => {
+      const matchesCategory = projectFilter === 'Todos' || project.category === projectFilter;
+      const matchesSearch = projectSearch === '' || 
+        project.title.toLowerCase().includes(projectSearch.toLowerCase()) ||
+        project.description.toLowerCase().includes(projectSearch.toLowerCase()) ||
+        project.technologies.some(tech => tech.toLowerCase().includes(projectSearch.toLowerCase()));
+      return matchesCategory && matchesSearch;
+    })
+    .sort((a, b) => {
+      switch (projectSort) {
+        case 'newest':
+          return parseInt(b.year) - parseInt(a.year);
+        case 'oldest':
+          return parseInt(a.year) - parseInt(b.year);
+        case 'alphabetical':
+          return a.title.localeCompare(b.title);
+        default:
+          return 0;
+      }
+    });
+
+  // Efecto para animar cambios en filtros
+  useEffect(() => {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (projectsGrid) {
+      projectsGrid.style.opacity = '0.7';
+      projectsGrid.style.transform = 'scale(0.98)';
+      
+      const timer = setTimeout(() => {
+        projectsGrid.style.opacity = '1';
+        projectsGrid.style.transform = 'scale(1)';
+        projectsGrid.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Re-animar las tarjetas de proyecto después del filtrado
+        anime({
+          targets: '.project-card',
+          translateY: [20, 0],
+          opacity: [0.8, 1],
+          scale: [0.95, 1],
+          delay: anime.stagger(100),
+          duration: 600,
+          easing: 'easeOutExpo'
+        });
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [projectFilter, projectSearch, projectSort]);
+
+  // Guardar preferencias en localStorage
+  useEffect(() => {
+    localStorage.setItem('tikno-project-filter', projectFilter);
+  }, [projectFilter]);
+
+  useEffect(() => {
+    localStorage.setItem('tikno-project-search', projectSearch);
+  }, [projectSearch]);
+
+  useEffect(() => {
+    localStorage.setItem('tikno-project-sort', projectSort);
+  }, [projectSort]);
+
+  // Función para limpiar filtros
+  const clearFilters = () => {
+    setProjectFilter('Todos');
+    setProjectSearch('');
+    setProjectSort('newest');
+  };
+
+
   
   // Navegación suave
   const scrollToSection = (sectionId) => {
@@ -710,6 +801,47 @@ function App() {
             Descubre las soluciones innovadoras que hemos desarrollado para nuestros clientes
           </p>
           
+          {/* Controles de filtrado y búsqueda */}
+           <div className="project-controls">
+             <div className="project-search">
+               <input
+                 type="text"
+                 placeholder="Buscar proyectos por nombre, descripción o tecnología..."
+                 value={projectSearch}
+                 onChange={(e) => setProjectSearch(e.target.value)}
+                 className="search-input"
+                 aria-label="Buscar proyectos"
+               />
+               <span className="search-icon">🔍</span>
+             </div>
+             
+             <div className="project-controls-right">
+               <div className="project-sort">
+                 <select
+                   value={projectSort}
+                   onChange={(e) => setProjectSort(e.target.value)}
+                   className="sort-select"
+                   aria-label="Ordenar proyectos"
+                 >
+                   <option value="newest">Más recientes</option>
+                   <option value="oldest">Más antiguos</option>
+                   <option value="alphabetical">Alfabético</option>
+                 </select>
+               </div>
+               
+               {(projectFilter !== 'Todos' || projectSearch !== '' || projectSort !== 'newest') && (
+                 <button
+                   onClick={clearFilters}
+                   className="clear-filters-btn"
+                   aria-label="Limpiar todos los filtros"
+                   title="Limpiar filtros"
+                 >
+                   ✕ Limpiar
+                 </button>
+               )}
+             </div>
+           </div>
+
           {/* Filtros */}
           <div className="project-filters">
             {projectCategories.map(category => (
@@ -724,6 +856,18 @@ function App() {
                 </span>
               </button>
             ))}
+          </div>
+          
+          {/* Contador de resultados */}
+          <div className="project-results-count">
+            {filteredProjects.length === 0 ? (
+              <p className="no-results">No se encontraron proyectos que coincidan con tu búsqueda.</p>
+            ) : (
+              <p className="results-text">
+                Mostrando {filteredProjects.length} de {projects.length} proyecto{filteredProjects.length !== 1 ? 's' : ''}
+                {projectSearch && ` para "${projectSearch}"`}
+              </p>
+            )}
           </div>
           
           {/* Grid de proyectos */}
