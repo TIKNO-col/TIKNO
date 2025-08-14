@@ -1,9 +1,9 @@
-# TIKNO Portfolio 🚀
+# TIKNO Portfolio 
 
 Una página web moderna y profesional creada con React y Anime.js, diseñada para mostrar proyectos de desarrollo web de manera elegante e interactiva.
 https://tikno-col.github.io/TIKNO/
 
-## ✨ Características
+##  Características
 
 - **Diseño Moderno**: Interfaz minimalista con efectos 3D y animaciones fluidas
 - **Animaciones Avanzadas**: Implementadas con Anime.js para transiciones suaves
@@ -12,7 +12,7 @@ https://tikno-col.github.io/TIKNO/
 - **Portfolio Interactivo**: Cartas 3D con efectos hover y click
 - **Performance Optimizado**: Carga rápida y experiencia fluida
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - **React 18** - Framework principal
 - **Anime.js** - Librería de animaciones
@@ -20,16 +20,16 @@ https://tikno-col.github.io/TIKNO/
 - **HTML5** - Estructura semántica
 - **JavaScript ES6+** - Lógica moderna
 
-## 🚀 Instalación y Configuración
+##  Instalación y Configuración
 
-### ⚠️ IMPORTANTE: Activación de Backends
+###  IMPORTANTE: Activación de Backends
 
 **ANTES DE USAR LA APLICACIÓN**, es crucial activar los siguientes servicios backend:
 
 - **ERP Backend**: https://erp-tikno.onrender.com
 - **eCommerce Backend**: https://ecommerce-tikno-project.onrender.com
 
-> 🔄 **Nota**: Estos servicios se suspenden automáticamente cada 15 minutos en Render por el plan gratuito. Es necesario visitarlos para activarlos antes de usar las funcionalidades del ERP y eCommerce en el portfolio.
+>  **Nota**: Estos servicios se suspenden automáticamente cada 15 minutos en Render por el plan gratuito. Es necesario visitarlos para activarlos antes de usar las funcionalidades del ERP y eCommerce en el portfolio.
 
 ### Prerrequisitos
 
@@ -76,7 +76,7 @@ nicorghost-portfolio/
 └── README.md
 ```
 
-## 🎨 Características del Diseño
+##  Características del Diseño
 
 ### Paleta de Colores
 - **Primario**: Negro profundo (#0a0a0a)
@@ -102,20 +102,20 @@ El portfolio incluye 6 proyectos ficticios:
 5. **MindBridge Connect** - Red social profesional
 6. **TechVault Security** - Plataforma de seguridad
 
-## 🔧 Scripts Disponibles
+##  Scripts Disponibles
 
 - `npm start` - Inicia el servidor de desarrollo
 - `npm build` - Crea la versión de producción
 - `npm test` - Ejecuta las pruebas
 - `npm eject` - Expone la configuración (irreversible)
 
-## 📱 Responsive Design
+##  Responsive Design
 
 - **Desktop**: Experiencia completa con todas las animaciones
 - **Tablet**: Layout adaptado con animaciones optimizadas
 - **Mobile**: Diseño vertical con interacciones simplificadas
 
-## 🌐 Despliegue
+##  Despliegue
 
 ### Para GitHub Pages
 1. Instalar gh-pages:
@@ -154,7 +154,7 @@ El portfolio incluye 6 proyectos ficticios:
    vercel
    ```
 
-## 🎯 Funcionalidades Interactivas
+##  Funcionalidades Interactivas
 
 - **Smooth Scrolling**: Navegación fluida entre secciones
 - **Hover Effects**: Efectos visuales en elementos interactivos
@@ -163,7 +163,7 @@ El portfolio incluye 6 proyectos ficticios:
 - **Loading Screen**: Pantalla de carga con animación
 - **Custom Cursor**: Cursor personalizado para desktop
 
-## 🔍 SEO y Accesibilidad
+##  SEO y Accesibilidad
 
 - Meta tags optimizados
 - Estructura semántica HTML5
@@ -171,7 +171,7 @@ El portfolio incluye 6 proyectos ficticios:
 - Modo de alto contraste
 - Respeto por preferencias de movimiento reducido
 
-## 🤝 Contribución
+##  Contribución
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
@@ -179,7 +179,7 @@ El portfolio incluye 6 proyectos ficticios:
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
@@ -189,7 +189,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 - GitHub: [@nicolas2601](https://github.com/nicolas2601)
 - Portfolio: [En construcción]
 
-## 🙏 Agradecimientos
+##  Agradecimientos
 
 - [React](https://reactjs.org/) - Framework principal
 - [Anime.js](https://animejs.com/) - Librería de animaciones
@@ -199,7 +199,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ---
 
-⭐ ¡No olvides dar una estrella al proyecto si te gustó!
+ ¡No olvides dar una estrella al proyecto si te gustó!
 
 ## 📞 Soporte
 
@@ -207,4 +207,4 @@ Si tienes alguna pregunta o problema, no dudes en:
 - Abrir un [Issue](https://github.com/nicolas2601/pagina-react/issues)
 - Contactar al desarrollador
 
-**¡Disfruta explorando el portfolio! 🎉**
+**¡Disfruta explorando el portfolio! **
