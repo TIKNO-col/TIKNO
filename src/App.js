@@ -147,6 +147,7 @@ function App() {
        console.error('Error sending email:', error);
        return { success: false, message: t.contact.errorMessage + ': ' + error.message };
      }
+
    };
 
    // Handle form input changes
@@ -157,6 +158,35 @@ function App() {
        [name]: value
      }));
    };
+
+// Handle pricing plan selection
+  const handlePlanSelection = (plan, isExpress = false) => {
+    const planType = isExpress ? 'Express' : 'Estándar';
+    const title = `Cotización - ${plan.name} (${planType})`;
+    const message = `Hola TIKNO,
+
+Me interesa el plan "${plan.name}" (${planType}) con un precio de ${plan.price} COP.
+
+${plan.description}
+
+Características incluidas:
+${plan.features.map(feature => `• ${feature}`).join('\n')}
+
+Me gustaría solicitar una cotización personalizada y conocer más detalles sobre este servicio.
+
+¡Espero su respuesta!`;
+
+    // Update form data
+    setFormData({
+      name: '',
+      email: '',
+      title: title,
+      message: message
+    });
+
+    // Scroll to contact section
+    scrollToSection('contacto');
+  };
 
    // Handle form submission
    const handleSubmit = async (e) => {
@@ -347,40 +377,72 @@ function App() {
   
   const pricingPlans = [
     {
-      name: 'Básico',
-      price: '$150-250',
-      icon: '🌱',
-      description: 'Sitios web estáticos y landing pages',
-      features: ['Diseño responsive', 'SEO básico', '3 páginas incluidas', 'Formulario de contacto', 'Hosting por 1 año']
-    },
-    {
-      name: 'Professional',
-      price: '$350-600',
+      name: 'Presencia digital',
+      price: '$700.000',
+      priceUS: '179,20',
       icon: '🚀',
-      description: 'Apps con backend + IA',
-      features: ['Base de datos', 'Panel de administración', 'API REST', 'Integración IA', 'Soporte 6 meses'],
-      popular: true
+      description: 'Tu negocio online con presencia profesional lista para crecer.',
+      features: ['Landing page profesional', 'Diseño 100% responsive', '5 páginas incluidas','integracion WhatsApp Business', 'Formulario de contacto', 'Hosting y dominio por 1 año','30 dias de ajustes post-entrega' ]
     },
     {
-      name: 'Enterprise',
-      price: '$800+',
+      name: 'Vende En Línea',
+      price: '$2.700.000',
+      priceUS: '691,22',
+      icon: '🚀',
+      description: 'E-commerce completo llave en mano',
+      features: ['Tienda online completa (WooCommerce o personalizada)', 'Panel de administración intuitivo', 'Catálogo variable de productos', 'Pasarelas de pago', 'Hosting y Dominio 1 año', 'capacitacion incluido','Soporte 24/7'],
+      popular: false
+    },
+    {
+      name: 'Solución a Medida',
+      price: '$4.000.000',
+      priceUS: '1024,03',
       icon: '🏢',
-      description: 'Soluciones corporativas completas',
-      features: ['Arquitectura escalable', 'Microservicios', 'DevOps completo', 'Soporte 24/7', 'Mantenimiento incluido']
+      description: 'Software personalizado para necesidades específicas',
+      features: ['Apliación web', 'Base de Datos robusta', 'API REST documentada', 'Dashboard administrativo', 'Reportes y analytic', '90 días de garantia', 'Documentacion técnica completa, Integracion y capacitacion']
+    }
+  ];
+
+  const pricingPlansExpress = [
+    {
+      name: 'Express Wordpress',
+      price: '$626.700',
+      priceUS: '160,44',
+      icon: '🚀',
+      description: 'Pagina express en WordPress rapida.',
+      features: ['Istalacion y configuración', 'Plantilla premium', '5 páginas de contenido ', 'Hosting y dominio por 1 año']
+    },
+    {
+      name: 'Express Shopify',
+      price: '$900.000',
+      priceUS: '169,12',
+      icon: '🚀',
+      description: 'Tienda en Shopify rapida y funcional.',
+      features: ['Configuración tienda Shopify', 'Diseño personalizado', 'Carga de productos (hasta 30)', 'Hosting y dominio por 1 año'],
+      popular: false
+    },
+    {
+      name: 'Express Astro (Ultra Rápida)',
+      price: '$600.000',
+      priceUS: '153,60',
+      icon: '🚀',
+      description: 'Sitio web estático moderno y rápido, construido con Astro.',
+      features: ['Desarollo sitio estático Astro', 'Optimizaciones de velocidad', 'SEO', 'Hosting y dominio por 1 año'],
+      popular: false
     }
   ];
   
   const teamMembers = [
     {
       name: 'Nicolas Moreno',
-      role: 'Co-Fundador & Full Stack Developer',
-      skills: ['React', 'Node.js','MongoDB'],
+      role: 'Co-Fundador & Desarrollador Backend',
+      skills: ['React', 'Node.js','PostgreSQL', 'Python', 'Django', 'Laravel', 'express', 'astro'],
       avatar: '👨‍💻',
-      description: 'Especialista en desarrollo frontend y arquitectura de aplicaciones'
+      description: 'Especialista en desarrollo backend, con experiencia en frameworks como Django, Laravel y Node.js.'
     },
     {
       name: 'Esteban Lozano',
-      role: 'Co-Fundador & Backend Developer',
+      role: 'Co-Fundador & Full Stack Developer',
       skills: ['Python', 'PostgreSQL', 'Docker',],
       avatar: '👨‍💻',
       description: 'Experto en backend, bases de datos y infraestructura cloud'
@@ -701,8 +763,6 @@ function App() {
   
   return (
     <div className="App">
-      {/* Cursor personalizado eliminado */}
-      
       {/* Header/Navigation */}
       <header className="header">
         <nav className="nav">
@@ -970,7 +1030,49 @@ function App() {
                   ))}
                 </ul>
                 <div className="pricing-action">
-                  <button className="btn btn-primary pricing-btn">
+                  <button 
+                    className="btn btn-primary pricing-btn"
+                    onClick={() => handlePlanSelection(plan, false)}
+                  >
+                    Solicitar Cotización
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+            {/* Precios Section */}
+      <section id="precios" className="section">
+        <div className="container">
+          <h2 className="section-title">Planes Express</h2>
+          <p className="section-subtitle">
+            Mitad de precio-Mitad de tiempo
+          </p> 
+          <div className="pricing-grid">
+            {pricingPlansExpress.map(plan => (
+              <div key={plan.name} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
+                {plan.popular && <div className="popular-badge">Más Popular</div>}
+                <div className="pricing-header">
+                  <div className="pricing-icon">{plan.icon}</div>
+                </div>
+                <h3 className="pricing-name">{plan.name}</h3>
+                <div className="pricing-price">{plan.price}</div>
+                <p className="pricing-description">{plan.description}</p>
+                <ul className="pricing-features">
+                  {plan.features.map(feature => (
+                    <li key={feature}>
+                      <span className="feature-check">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="pricing-action">
+                  <button 
+                    className="btn btn-primary pricing-btn"
+                    onClick={() => handlePlanSelection(plan, true)}
+                  >
                     Solicitar Cotización
                   </button>
                 </div>
@@ -1051,28 +1153,31 @@ function App() {
                 </div>
               )}
               
-              <div className="form-group">
-                <input 
-                  type="text" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder={t.contact.namePlaceholder} 
-                  required 
-                  disabled={isSubmitting}
-                />
+              <div className="form-row">
+                <div className="form-group">
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder={t.contact.namePlaceholder} 
+                    required 
+                    disabled={isSubmitting}
+                  />
+                </div>
+                <div className="form-group">
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder={t.contact.emailPlaceholder} 
+                    required 
+                    disabled={isSubmitting}
+                  />
+                </div>
               </div>
-              <div className="form-group">
-                <input 
-                  type="email" 
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder={t.contact.emailPlaceholder} 
-                  required 
-                  disabled={isSubmitting}
-                />
-              </div>
+              
               <div className="form-group">
                 <input 
                   type="text" 
@@ -1090,7 +1195,7 @@ function App() {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder={t.contact.messagePlaceholder} 
-                  rows="5" 
+                  rows="6" 
                   required
                   disabled={isSubmitting}
                 ></textarea>
@@ -1133,7 +1238,7 @@ function App() {
           </div>
           <div className="footer-bottom">
             <p>&copy; 2025 TIKNO. Todos los derechos reservados.</p>
-            <p>Desarrollado con ❤️ por Nicolas Moreno & Esteban Lozano</p>
+            <p>Desarrollado por Nicolas Moreno & Esteban Lozano</p>
           </div>
         </div>
       </footer>
