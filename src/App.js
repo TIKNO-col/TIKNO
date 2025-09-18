@@ -1163,6 +1163,7 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                     placeholder={t.contact.namePlaceholder} 
                     required 
                     disabled={isSubmitting}
+                    className="w-full"
                   />
                 </div>
                 <div className="form-group">
@@ -1174,6 +1175,7 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                     placeholder={t.contact.emailPlaceholder} 
                     required 
                     disabled={isSubmitting}
+                    className="w-full"
                   />
                 </div>
               </div>
@@ -1202,7 +1204,7 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
               </div>
               <button 
                 type="submit" 
-                className="btn btn-primary"
+                className="btn btn-primary w-full md:w-auto"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? t.contact.sending : t.contact.sendButton}
