@@ -358,8 +358,8 @@ const translations = {
         // Validar campos vacíos
         if (!formData.name || !formData.email || !formData.title || !formData.message) {
           setSubmitMessage(language === 'es' 
-            ? 'Por favor completa todos los campos antes de enviar.' 
-            : 'Please fill out all fields before sending.'
+            ? 'Error: Por favor completa todos los campos antes de enviar.' 
+            : 'Error: Please fill out all fields before sending.'
           );
           return;
         }
