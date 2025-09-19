@@ -29,7 +29,7 @@ function App() {
   const heroRef = useRef(null);
 
   
-  const translations = {
+const translations = {
     es: {
       nav: {
         inicio: 'Inicio',
@@ -47,6 +47,58 @@ function App() {
         btnContact: 'Contactar',
         scroll: 'Scroll'
       },
+      projects: {
+        title: 'Nuestros Proyectos',
+        subtitle: 'Descubre las soluciones innovadoras que hemos desarrollado para nuestros clientes',
+        backendNotice: {
+          title: 'Importante: Activación de Servicios Backend',
+          description: 'Para el correcto funcionamiento del ERP y eCommerce, es necesario activar primero los backends:',
+          activateERP: 'Activar ERP Backend',
+          activateEcommerce: 'Activar eCommerce Backend',
+          note: 'Los servicios se suspenden cada 15 minutos en Render (plan gratuito)',
+        },
+        sort: {
+          newest: 'Más recientes',
+          oldest: 'Más antiguos',
+          alphabetical: 'Alfabético'
+        },
+        clear: 'Limpiar',
+        searchPlaceholder: 'Buscar proyectos por nombre, descripción o tecnología...',
+        searchAriaLabel: 'Buscar proyectos',
+        showing: 'Mostrando',
+        of: 'de',
+        projects: 'proyecto',
+        projectsPlural: 'proyectos',
+        for: 'para',
+        noResults: 'No se encontraron proyectos que coincidan con tu búsqueda.',
+        viewProject: 'Ver Proyecto',
+        viewLive: 'Ver en vivo',
+        viewCode: 'Ver código',
+        categories: {
+          all: 'Todos',
+          web: 'Desarrollo Web',
+          ecommerce: 'E-commerce',
+          landing: 'Landing Page',
+          admin: 'Aplicacion web de administracion',
+          development: 'En Desarrollo'
+        }
+      },
+      technologies: {
+        title: 'Tecnologías & Expertise',
+        subtitle: 'Utilizamos las tecnologías más modernas y confiables del mercado'
+      },
+      pricing: {
+        title: 'Planes y Precios',
+        subtitle: 'Soluciones accesibles adaptadas a tu presupuesto y necesidades',
+        titleExpress: 'Planes Express',
+        subtitleExpress: 'Mitad de precio - Mitad de tiempo',
+        requestQuote: 'Solicitar Cotización',
+        popular: 'Más Popular'
+      },
+      team: {
+        title: 'Nuestro Equipo',
+        subtitle: 'Conoce a los fundadores de TIKNO, apasionados por la tecnología y la innovación'
+      },
       contact: {
         title: 'Contacto',
         subtitle: '¿Tienes un proyecto en mente? Hablemos y hagamos realidad tu idea',
@@ -58,7 +110,26 @@ function App() {
         sendButton: 'Enviar Mensaje',
         sending: 'Enviando...',
         successMessage: '¡Mensaje enviado correctamente!',
-        errorMessage: 'Error al enviar el mensaje. Inténtalo de nuevo.'
+        errorMessage: 'Error al enviar el mensaje. Inténtalo de nuevo.',
+        email: 'Email',
+        phone: 'Teléfono',
+        location: 'Ubicación',
+        country: 'Colombia'
+      },
+      footer: {
+        brand: 'TIKNO',
+        brandDescription: language === 'es' ? 'Innovación cercana, software a tu alcance' : 'Close innovation, software within your reach',
+        brandQuote: language === 'es' ? '"Hacemos simple lo digital"' : '"We make digital simple"',
+        links: language === 'es' ? 'Enlaces' : 'Links',
+        contact: language === 'es' ? 'Contacto' : 'Contact',
+        inicio: language === 'es' ? 'Inicio' : 'Home',
+        proyectos: language === 'es' ? 'Proyectos' : 'Projects',
+        tecnologias: language === 'es' ? 'Tecnologías' : 'Technologies',
+        precios: language === 'es' ? 'Precios' : 'Pricing',
+        email: 'nm5571762@gmail.com',
+        phone: '+57 (350) 232-8517',
+        rights: language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.',
+        developedBy: language === 'es' ? 'Desarrollado por Nicolas Moreno & Esteban Lozano' : 'Developed by Nicolas Moreno & Esteban Lozano'
       }
     },
     en: {
@@ -78,6 +149,58 @@ function App() {
         btnContact: 'Contact',
         scroll: 'Scroll'
       },
+      projects: {
+        title: 'Our Projects',
+        subtitle: 'Discover the innovative solutions we have developed for our clients',
+        backendNotice: {
+          title: 'Important: Backend Services Activation',
+          description: 'For proper functioning of ERP and eCommerce, backends must be activated first:',
+          activateERP: 'Activate ERP Backend',
+          activateEcommerce: 'Activate eCommerce Backend',
+          note: 'Services suspend every 15 minutes on Render (free plan)'
+        },
+        searchPlaceholder: 'Search projects by name, description or technology...',
+        searchAriaLabel: 'Search projects',
+        sort: {
+          newest: 'Newest',
+          oldest: 'Oldest',
+          alphabetical: 'Alphabetical'
+        },
+        clear: 'Clear',
+        showing: 'Showing',
+        of: 'of',
+        projects: 'project',
+        projectsPlural: 'projects',
+        for: 'for',
+        noResults: 'No projects found matching your search.',
+        viewProject: 'View Project',
+        viewLive: 'View Live',
+        viewCode: 'View Code',
+        categories: {
+          all: 'All',
+          web: 'Web Development',
+          ecommerce: 'E-commerce',
+          landing: 'Landing Page',
+          admin: 'Admin Web Application',
+          development: 'In Development'
+        }
+      },
+      technologies: {
+        title: 'Technologies & Expertise',
+        subtitle: 'We use the most modern and reliable technologies on the market'
+      },
+      pricing: {
+        title: 'Plans and Pricing',
+        titleExpress: 'Express Plans',
+        subtitle: 'Accessible solutions tailored to your budget and needs',
+        subtitleExpress: 'Half price - Half time',
+        requestQuote: 'Request Quote',
+        popular: 'Most Popular'
+      },
+      team: {
+        title: 'Our Team',
+        subtitle: 'Meet TIKNO\'s founders, passionate about technology and innovation'
+      },
       contact: {
         title: 'Contact',
         subtitle: 'Do you have a project in mind? Let\'s talk and make your idea a reality',
@@ -89,8 +212,28 @@ function App() {
         sendButton: 'Send Message',
         sending: 'Sending...',
         successMessage: 'Message sent successfully!',
-        errorMessage: 'Error sending message. Please try again.'
+        errorMessage: 'Error sending message. Please try again.',
+        email: 'Email',
+        phone: 'Phone',
+        location: 'Location',
+        country: 'Colombia'
+      },
+      footer: {
+        brand: 'TIKNO',
+        brandDescription: 'Close innovation, software within your reach',
+        brandQuote: '"We make digital simple"',
+        links: 'Links',
+        contact: 'Contact',
+        inicio: 'Home',
+        proyectos: 'Projects',
+        tecnologias: 'Technologies',
+        precios: 'Pricing',
+        email: 'nm5571762@gmail.com',
+        phone: '+57 (350) 232-8517',
+        rights: 'All rights reserved.',
+        developedBy: 'Developed by Nicolas Moreno & Esteban Lozano'
       }
+
     }
   };
 
@@ -159,73 +302,101 @@ function App() {
      }));
    };
 
-// Handle pricing plan selection
-  const handlePlanSelection = (plan, isExpress = false) => {
-    const planType = isExpress ? 'Express' : 'Estándar';
-    const title = `Cotización - ${plan.name} (${planType})`;
-    const message = `Hola TIKNO,
+      // Handle pricing plan selection
+      const handlePlanSelection = (plan, isExpress = false) => {
+        const planType = isExpress 
+          ? (language === 'es' ? 'Express' : 'Express') 
+          : (language === 'es' ? 'Estándar' : 'Standard');
 
-Me interesa el plan "${plan.name}" (${planType}) con un precio de ${plan.price} COP.
+        const title = language === 'es'
+          ? `Cotización - ${plan.name} (${planType})`
+          : `Quote - ${plan.name} (${planType})`;
 
-${plan.description}
+        const message = language === 'es'
+          ? `Hola TIKNO,
 
-Características incluidas:
-${plan.features.map(feature => `• ${feature}`).join('\n')}
+      Me interesa el plan "${plan.name}" (${planType}) con un precio de ${plan.price} COP.
 
-Me gustaría solicitar una cotización personalizada y conocer más detalles sobre este servicio.
+      ${plan.description}
 
-¡Espero su respuesta!`;
+      Características incluidas:
+      ${plan.features.map(feature => `• ${feature}`).join('\n')}
 
-    // Update form data
-    setFormData({
-      name: '',
-      email: '',
-      title: title,
-      message: message
-    });
+      Me gustaría solicitar una cotización personalizada y conocer más detalles sobre este servicio.
 
-    // Scroll to contact section
-    scrollToSection('contacto');
-  };
+      ¡Espero su respuesta!`
+          : `Hello TIKNO,
 
-   // Handle form submission
-   const handleSubmit = async (e) => {
-     e.preventDefault();
-     e.stopPropagation();
-     
-     // Prevent multiple submissions
-     if (isSubmitting) {
-       return false;
-     }
-     
-     setIsSubmitting(true);
-     setSubmitMessage('');
+      I am interested in the "${plan.name}" (${planType}) plan with a price of ${plan.price} COP.
 
-     try {
-       const result = await sendEmail(formData);
-       
-       setSubmitMessage(result.message);
-       
-       if (result.success) {
-         // Reset form on success
-         setFormData({
-           name: '',
-           email: '',
-           title: '',
-           message: ''
-         });
-         // Clear success message after 5 seconds
-         setTimeout(() => setSubmitMessage(''), 5000);
-       }
-     } catch (error) {
-       console.error('Form submission error:', error);
-       setSubmitMessage(t.contact.errorMessage);
-     } finally {
-       setIsSubmitting(false);
-     }
-     
-     return false;
-   };
+      ${plan.description}
+
+      Included features:
+      ${plan.features.map(feature => `• ${feature}`).join('\n')}
+
+      I would like to request a personalized quote and learn more details about this service.
+
+      Looking forward to your reply!`;
+
+        // Update form data
+        setFormData({
+          name: '',
+          email: '',
+          title: title,
+          message: message
+        });
+
+        // Scroll to contact section
+        scrollToSection('contacto');
+      };
+
+      // Handle form submission
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Validar campos vacíos
+        if (!formData.name || !formData.email || !formData.title || !formData.message) {
+          setSubmitMessage(language === 'es' 
+            ? 'Por favor completa todos los campos antes de enviar.' 
+            : 'Please fill out all fields before sending.'
+          );
+          return;
+        }
+
+        // Prevenir envíos múltiples
+        if (isSubmitting) {
+          return false;
+        }
+
+        setIsSubmitting(true);
+        setSubmitMessage('');
+
+        try {
+          const result = await sendEmail(formData);
+          setSubmitMessage(result.message);
+
+          if (result.success) {
+            // Reset form on success
+            setFormData({
+              name: '',
+              email: '',
+              title: '',
+              message: ''
+            });
+            // Clear success message after 5 seconds
+            setTimeout(() => setSubmitMessage(''), 5000);
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          setSubmitMessage(t.contact.errorMessage);
+        } finally {
+          setIsSubmitting(false);
+        }
+
+        return false;
+      };
+
   
   const typewriterTexts = [
     'Creando experiencias digitales excepcionales',
@@ -234,220 +405,297 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
   ];
   
   const projectCategories = [
-    'Todos', 'Desarrollo Web', 'E-commerce', 'Landing Page', 'Aplicacion web de administracion', 'En Desarrollo'
+  t.projects.categories.all, 
+  t.projects.categories.web, 
+  t.projects.categories.ecommerce, 
+  t.projects.categories.landing, 
+  t.projects.categories.admin, 
+  t.projects.categories.development
   ];
   
-  const projects = [
-    {
-      id: 1,
-      title: 'TIKNO Portfolio',
-      category: 'Desarrollo Web',
-      technologies: ['React', 'Anime.js', 'CSS3', 'JavaScript', 'HTML5'],
-      status: '✅ COMPLETADO',
-      description: 'Una página web moderna y profesional creada con React y Anime.js, diseñada para mostrar proyectos de desarrollo web de manera elegante e interactiva.',
-      image: process.env.PUBLIC_URL + '/Tikno.jpg',
-      year: '2025',
-      features: ['Diseño Moderno', 'Animaciones Avanzadas', 'Responsive Design', 'Multiidioma', 'Portfolio Interactivo'],
-      liveUrl: 'https://tikno-col.github.io/TIKNO-',
-      githubUrl: 'https://github.com/TIKNO-col'
-    },
-    {
-      id: 2,
-      title: 'E-commerce TIKNO',
-      category: 'E-commerce',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Bootstrap'],
-      status: '✅ COMPLETADO',
-      description: 'Plataforma de comercio electrónico completa con gestión de productos, carrito de compras, sistema de pagos y panel de administración.',
-      image: process.env.PUBLIC_URL + '/ecommerce1.jpg',
-      images: [process.env.PUBLIC_URL + '/ecommerce1.jpg', process.env.PUBLIC_URL + '/ecommerce2.jpg', process.env.PUBLIC_URL + '/ecommerce3.jpg'],
-      year: '2025',
-      features: ['Carrito de compras', 'Sistema de pagos', 'Panel de administración', 'Gestión de inventario', 'Responsive design'],
-      liveUrl: 'https://ecommerce-tiknowow.vercel.app',
-      // ⚠️ IMPORTANTE: Activar backend antes de usar: https://ecommerce-tikno-project.onrender.com
-      // El servicio se suspende cada 15 minutos en Render (plan gratuito)
-      backendUrl: 'https://ecommerce-tikno-project.onrender.com',
-      githubUrl: 'https://github.com/TIKNO-col'
-    },
-    {
-      id: 3,
-      title: 'Blythe Dolls Landing',
-      category: 'Landing Page',
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Responsive Design'],
-      status: '✅ COMPLETADO',
-      description: 'Landing page moderna y elegante para Blythe Dolls, una tienda especializada en muñecas únicas y personalizadas. El sitio web presenta una experiencia visual atractiva con galería de productos, sistema de suscripción a newsletter y diseño completamente responsivo.',
-      image: process.env.PUBLIC_URL + '/landingpage.jpg',
-      year: '2025',
-      features: ['Experiencia visual atractiva', 'Galería de productos', 'Newsletter subscription', 'Diseño responsivo', 'Muñecas personalizadas'],
-      liveUrl: 'https://landing-blythe-tikno.vercel.app',
-      githubUrl: 'https://github.com/TIKNO-col'
-    },
-    {
-      id: 4,
-      title: 'ERP TIKNO',
-      category: 'Aplicacion web de administracion',
-      technologies: ['React', 'Django', 'PostgreSQL', 'JWT', 'tailwind'],
-      status: '✅ COMPLETADO',
-      description: 'ERP TIKNO es una aplicación web de administración de recursos empresariales que permite a las empresas gestionar sus operaciones de manera eficiente y efectiva. La aplicación ofrece una serie de módulos que abarcan desde la gestión de inventario y compras hasta la gestión de ventas y pagos. Además, la aplicación cuenta con un panel de control que permite a los usuarios monitorear y controlar sus operaciones en tiempo real.',
-      image: process.env.PUBLIC_URL + '/erp.jpg',
-      year: '2025',
-      features: ['Gestión de inventario', 'Compras y ventas', 'Pagos y facturación', 'Reportes y análisis', 'Seguridad y control de acceso'],
-      liveUrl: 'https://erptikno-flame.vercel.app/',
-      // ⚠️ IMPORTANTE: Activar backend antes de usar: https://erp-tikno.onrender.com
-      // El servicio se suspende cada 15 minutos en Render (plan gratuito)
-      backendUrl: 'https://erp-tikno.onrender.com',
-      githubUrl: 'https://github.com/TIKNO-col'
-    },
-    {
-      id: 5,
-      title: 'Próximo Proyecto',
-      category: 'En Desarrollo',
-      technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
-      status: '🚧 EN DESARROLLO',
-      description: 'Nuevo proyecto en desarrollo que incorporará las últimas tecnologías y mejores prácticas de desarrollo web.',
-      image: process.env.PUBLIC_URL + '/logoTIKNO.jpg',
-      year: '2025',
-      features: ['Próximamente', 'Tecnologías modernas', 'Mejores prácticas', 'Innovación'],
-      liveUrl: '#',
-      githubUrl: 'https://github.com/TIKNO-col'
-    }
-  ];
+const projects = [
+  {
+    id: 1,
+    title: 'TIKNO Portfolio',
+    category: language === 'es' ? 'Desarrollo Web' : 'Web Development',
+    technologies: ['React', 'Anime.js', 'CSS3', 'JavaScript', 'HTML5'],
+    status: language === 'es' ? '✅ COMPLETADO' : '✅ COMPLETED',
+    description: language === 'es' ? 
+      'Una página web moderna y profesional creada con React y Anime.js, diseñada para mostrar proyectos de desarrollo web de manera elegante e interactiva.' :
+      'A modern and professional website created with React and Anime.js, designed to showcase web development projects in an elegant and interactive way.',
+    image: process.env.PUBLIC_URL + '/Tikno.jpg',
+    year: '2025',
+    features: language === 'es' ? 
+      ['Diseño Moderno', 'Animaciones Avanzadas', 'Responsive Design', 'Multiidioma', 'Portfolio Interactivo'] :
+      ['Modern Design', 'Advanced Animations', 'Responsive Design', 'Multilingual', 'Interactive Portfolio'],
+    liveUrl: 'https://tikno-col.github.io/TIKNO-',
+    githubUrl: 'https://github.com/TIKNO-col'
+  },
+  {
+    id: 2,
+    title: 'E-commerce TIKNO',
+    category: language === 'es' ? 'E-commerce' : 'E-commerce',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Bootstrap'],
+    status: language === 'es' ? '✅ COMPLETADO' : '✅ COMPLETED',
+    description: language === 'es' ? 
+      'Plataforma de comercio electrónico completa con gestión de productos, carrito de compras, sistema de pagos y panel de administración.' :
+      'Complete e-commerce platform with product management, shopping cart, payment system and administration panel.',
+    image: process.env.PUBLIC_URL + '/ecommerce1.jpg',
+    images: [process.env.PUBLIC_URL + '/ecommerce1.jpg', process.env.PUBLIC_URL + '/ecommerce2.jpg', process.env.PUBLIC_URL + '/ecommerce3.jpg'],
+    year: '2025',
+    features: language === 'es' ? 
+      ['Carrito de compras', 'Sistema de pagos', 'Panel de administración', 'Gestión de inventario', 'Responsive design'] :
+      ['Shopping cart', 'Payment system', 'Administration panel', 'Inventory management', 'Responsive design'],
+    liveUrl: 'https://ecommerce-tiknowow.vercel.app',
+    backendUrl: 'https://ecommerce-tikno-project.onrender.com',
+    githubUrl: 'https://github.com/TIKNO-col'
+  },
+  {
+    id: 3,
+    title: 'Blythe Dolls Landing',
+    category: language === 'es' ? 'Landing Page' : 'Landing Page',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Responsive Design'],
+    status: language === 'es' ? '✅ COMPLETADO' : '✅ COMPLETED',
+    description: language === 'es' ? 
+      'Landing page moderna y elegante para Blythe Dolls, una tienda especializada en muñecas únicas y personalizadas. El sitio web presenta una experiencia visual atractiva con galería de productos, sistema de suscripción a newsletter y diseño completamente responsivo.' :
+      'Modern and elegant landing page for Blythe Dolls, a store specialized in unique and personalized dolls. The website features an attractive visual experience with product gallery, newsletter subscription system and fully responsive design.',
+    image: process.env.PUBLIC_URL + '/landingpage.jpg',
+    year: '2025',
+    features: language === 'es' ? 
+      ['Experiencia visual atractiva', 'Galería de productos', 'Newsletter subscription', 'Diseño responsivo', 'Muñecas personalizadas'] :
+      ['Attractive visual experience', 'Product gallery', 'Newsletter subscription', 'Responsive design', 'Personalized dolls'],
+    liveUrl: 'https://landing-blythe-tikno.vercel.app',
+    githubUrl: 'https://github.com/TIKNO-col'
+  },
+  {
+    id: 4,
+    title: 'ERP TIKNO',
+    category: language === 'es' ? 'Aplicacion web de administracion' : 'Admin Web Application',
+    technologies: ['React', 'Django', 'PostgreSQL', 'JWT', 'tailwind'],
+    status: language === 'es' ? '✅ COMPLETADO' : '✅ COMPLETED',
+    description: language === 'es' ? 
+      'ERP TIKNO es una aplicación web de administración de recursos empresariales que permite a las empresas gestionar sus operaciones de manera eficiente y efectiva. La aplicación ofrece una serie de módulos que abarcan desde la gestión de inventario y compras hasta la gestión de ventas y pagos. Además, la aplicación cuenta con un panel de control que permite a los usuarios monitorear y controlar sus operaciones en tiempo real.' :
+      'ERP TIKNO is a business resource management web application that allows companies to manage their operations efficiently and effectively. The application offers a series of modules ranging from inventory and purchasing management to sales and payment management. Additionally, the application has a control panel that allows users to monitor and control their operations in real time.',
+    image: process.env.PUBLIC_URL + '/erp.jpg',
+    year: '2025',
+    features: language === 'es' ? 
+      ['Gestión de inventario', 'Compras y ventas', 'Pagos y facturación', 'Reportes y análisis', 'Seguridad y control de acceso'] :
+      ['Inventory management', 'Purchases and sales', 'Payments and billing', 'Reports and analysis', 'Security and access control'],
+    liveUrl: 'https://erptikno-flame.vercel.app/',
+    backendUrl: 'https://erp-tikno.onrender.com',
+    githubUrl: 'https://github.com/TIKNO-col'
+  },
+  {
+    id: 5,
+    title: language === 'es' ? 'Próximo Proyecto' : 'Next Project',
+    category: language === 'es' ? 'En Desarrollo' : 'In Development',
+    technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
+    status: language === 'es' ? '🚧 EN DESARROLLO' : '🚧 IN DEVELOPMENT',
+    description: language === 'es' ? 
+      'Nuevo proyecto en desarrollo que incorporará las últimas tecnologías y mejores prácticas de desarrollo web.' :
+      'New project in development that will incorporate the latest technologies and best practices in web development.',
+    image: process.env.PUBLIC_URL + '/logoTIKNO.jpg',
+    year: '2025',
+    features: language === 'es' ? 
+      ['Próximamente', 'Tecnologías modernas', 'Mejores prácticas', 'Innovación'] :
+      ['Coming soon', 'Modern technologies', 'Best practices', 'Innovation'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/TIKNO-col'
+  }
+];
   
-  const technologies = [
-    {
-      name: 'React',
-      icon: '⚛️',
-      description: 'Biblioteca para interfaces de usuario modernas y reactivas'
-    },
-    {
-      name: 'Node.js',
-      icon: '🟢',
-      description: 'Runtime de JavaScript para desarrollo backend escalable'
-    },
-    {
-      name: 'Python',
-      icon: '🐍',
-      description: 'Lenguaje versátil para IA, ML y desarrollo backend'
-    },
-    {
-      name: 'JavaScript',
-      icon: '🟨',
-      description: 'Lenguaje de programación dinámico para web'
-    },
-    {
-      name: 'Next.js',
-      icon: '▲',
-      description: 'Framework de React para aplicaciones web de producción'
-    },
-    {
-      name: 'Laravel',
-      icon: '🔴',
-      description: 'Framework PHP elegante para desarrollo web'
-    },
-    {
-      name: 'Django',
-      icon: '🎸',
-      description: 'Framework web de Python de alto nivel'
-    },
-    {
-      name: 'PostgreSQL',
-      icon: '🐘',
-      description: 'Base de datos relacional avanzada y confiable'
-    },
-    {
-      name: 'Docker',
-      icon: '🐳',
-      description: 'Plataforma de contenedores para desarrollo y despliegue'
-    },
-    {
-      name: 'Azure',
-      icon: '☁️',
-      description: 'Servicios en la nube de Microsoft para infraestructura robusta'
-    },
-    {
-      name: 'MongoDB',
-      icon: '🍃',
-      description: 'Base de datos NoSQL flexible y de alto rendimiento'
-    },
-    {
-      name: 'Bootstrap',
-      icon: '🅱️',
-      description: 'Framework CSS para desarrollo responsive rápido'
-    }
-  ];
+const technologies = [
+  {
+    name: 'React',
+    icon: '⚛️',
+    description: language === 'es' ? 
+      'Biblioteca para interfaces de usuario modernas y reactivas' :
+      'Library for modern and reactive user interfaces'
+  },
+  {
+    name: 'Node.js',
+    icon: '🟢',
+    description: language === 'es' ? 
+      'Runtime de JavaScript para desarrollo backend escalable' :
+      'JavaScript runtime for scalable backend development'
+  },
+  {
+    name: 'Python',
+    icon: '🐍',
+    description: language === 'es' ? 
+      'Lenguaje versátil para IA, ML y desarrollo backend' :
+      'Versatile language for AI, ML and backend development'
+  },
+  {
+    name: 'JavaScript',
+    icon: '🟨',
+    description: language === 'es' ? 
+      'Lenguaje de programación dinámico para web' :
+      'Dynamic programming language for web'
+  },
+  {
+    name: 'Next.js',
+    icon: '▲',
+    description: language === 'es' ? 
+      'Framework de React para aplicaciones web de producción' :
+      'React framework for production web applications'
+  },
+  {
+    name: 'Laravel',
+    icon: '🔴',
+    description: language === 'es' ? 
+      'Framework PHP elegante para desarrollo web' :
+      'Elegant PHP framework for web development'
+  },
+  {
+    name: 'Django',
+    icon: '🎸',
+    description: language === 'es' ? 
+      'Framework web de Python de alto nivel' :
+      'High-level Python web framework'
+  },
+  {
+    name: 'PostgreSQL',
+    icon: '🐘',
+    description: language === 'es' ? 
+      'Base de datos relacional avanzada y confiable' :
+      'Advanced and reliable relational database'
+  },
+  {
+    name: 'Docker',
+    icon: '🐳',
+    description: language === 'es' ? 
+      'Plataforma de contenedores para desarrollo y despliegue' :
+      'Container platform for development and deployment'
+  },
+  {
+    name: 'Azure',
+    icon: '☁️',
+    description: language === 'es' ? 
+      'Servicios en la nube de Microsoft para infraestructura robusta' :
+      'Microsoft cloud services for robust infrastructure'
+  },
+  {
+    name: 'MongoDB',
+    icon: '🍃',
+    description: language === 'es' ? 
+      'Base de datos NoSQL flexible y de alto rendimiento' :
+      'Flexible and high-performance NoSQL database'
+  },
+  {
+    name: 'Bootstrap',
+    icon: '🅱️',
+    description: language === 'es' ? 
+      'Framework CSS para desarrollo responsive rápido' :
+      'CSS framework for rapid responsive development'
+  }
+];
   
-  const pricingPlans = [
-    {
-      name: 'Presencia digital',
-      price: '$700.000',
-      priceUS: '179,20',
-      icon: '🚀',
-      description: 'Tu negocio online con presencia profesional lista para crecer.',
-      features: ['Landing page profesional', 'Diseño 100% responsive', '5 páginas incluidas','integracion WhatsApp Business', 'Formulario de contacto', 'Hosting y dominio por 1 año','30 dias de ajustes post-entrega' ]
-    },
-    {
-      name: 'Vende En Línea',
-      price: '$2.700.000',
-      priceUS: '691,22',
-      icon: '🚀',
-      description: 'E-commerce completo llave en mano',
-      features: ['Tienda online completa (WooCommerce o personalizada)', 'Panel de administración intuitivo', 'Catálogo variable de productos', 'Pasarelas de pago', 'Hosting y Dominio 1 año', 'capacitacion incluido','Soporte 24/7'],
-      popular: false
-    },
-    {
-      name: 'Solución a Medida',
-      price: '$4.000.000',
-      priceUS: '1024,03',
-      icon: '🏢',
-      description: 'Software personalizado para necesidades específicas',
-      features: ['Apliación web', 'Base de Datos robusta', 'API REST documentada', 'Dashboard administrativo', 'Reportes y analytic', '90 días de garantia', 'Documentacion técnica completa, Integracion y capacitacion']
-    }
+const pricingPlans = [
+  {
+    name: language === 'es' ? 'Presencia digital' : 'Digital Presence',
+    price: language === 'es' ? '$700.000' : '$179',
+    priceUS: '179',
+    icon: '🚀',
+    description: language === 'es' ? 
+      'Tu negocio online con presencia profesional lista para crecer.' :
+      'Your online business with professional presence ready to grow.',
+    features: language === 'es' ? 
+      ['Landing page profesional', 'Diseño 100% responsive', '5 páginas incluidas','integracion WhatsApp Business', 'Formulario de contacto', 'Hosting y dominio por 1 año','30 dias de ajustes post-entrega'] :
+      ['Professional landing page', '100% responsive design', '5 pages included', 'WhatsApp Business integration', 'Contact form', 'Hosting and domain for 1 year', '30 days of post-delivery adjustments']
+  },
+  {
+    name: language === 'es' ? 'Vende En Línea' : 'Sell Online',
+    price: language === 'es' ? '$2.700.000' : '$691',
+    priceUS: '691',
+    icon: '🚀',
+    description: language === 'es' ? 
+      'E-commerce completo llave en mano' :
+      'Complete turnkey e-commerce',
+    features: language === 'es' ? 
+      ['Tienda online completa (WooCommerce o personalizada)', 'Panel de administración intuitivo', 'Catálogo variable de productos', 'Pasarelas de pago', 'Hosting y Dominio 1 año', 'capacitacion incluido','Soporte 24/7'] :
+      ['Complete online store (WooCommerce or custom)', 'Intuitive administration panel', 'Variable product catalog', 'Payment gateways', 'Hosting and Domain 1 year', 'Training included', '24/7 Support'],
+    popular: false
+  },
+  {
+    name: language === 'es' ? 'Solución a Medida' : 'Custom Solution',
+    price: language === 'es' ? '$4.000.000' : '$1,024',
+    priceUS: '1024',
+    icon: '🏢',
+    description: language === 'es' ? 
+      'Software personalizado para necesidades específicas' :
+      'Custom software for specific needs',
+    features: language === 'es' ? 
+      ['Aplicación web', 'Base de Datos robusta', 'API REST documentada', 'Dashboard administrativo', 'Reportes y analytic', '90 días de garantia', 'Documentacion técnica completa, Integracion y capacitacion'] :
+      ['Web application', 'Robust database', 'Documented REST API', 'Administrative dashboard', 'Reports and analytics', '90 days warranty', 'Complete technical documentation, Integration and training']
+  }
+];
+
+const pricingPlansExpress = [
+  {
+    name: language === 'es' ? 'Express Wordpress' : 'Express WordPress',
+    price: language === 'es' ? '$626.700' : '$160',
+    priceUS: '160',
+    icon: '🚀',
+    description: language === 'es' ? 
+      'Pagina express en WordPress rapida.' :
+      'Fast express WordPress page.',
+    features: language === 'es' ? 
+      ['Instalacion y configuración', 'Plantilla premium', '5 páginas de contenido ', 'Hosting y dominio por 1 año'] :
+      ['Installation and configuration', 'Premium template', '5 content pages', 'Hosting and domain for 1 year']
+  },
+  {
+    name: language === 'es' ? 'Express Shopify' : 'Express Shopify',
+    price: language === 'es' ? '$900.000' : '$230',
+    priceUS: '230',
+    icon: '🚀',
+    description: language === 'es' ? 
+      'Tienda en Shopify rapida y funcional.' :
+      'Fast and functional Shopify store.',
+    features: language === 'es' ? 
+      ['Configuración tienda Shopify', 'Diseño personalizado', 'Carga de productos (hasta 30)', 'Hosting y dominio por 1 año'] :
+      ['Shopify store configuration', 'Custom design', 'Product upload (up to 30)', 'Hosting and domain for 1 year'],
+    popular: false
+  },
+  {
+    name: language === 'es' ? 'Express Astro (Ultra Rápida)' : 'Express Astro (Ultra Fast)',
+    price: language === 'es' ? '$600.000' : '$154',
+    priceUS: '154',
+    icon: '🚀',
+    description: language === 'es' ? 
+      'Sitio web estático moderno y rápido, construido con Astro.' :
+      'Modern and fast static website built with Astro.',
+    features: language === 'es' ? 
+      ['Desarollo sitio estático Astro', 'Optimizaciones de velocidad', 'SEO', 'Hosting y dominio por 1 año'] :
+      ['Astro static site development', 'Speed optimizations', 'SEO', 'Hosting and domain for 1 year'],
+    popular: false
+  }
   ];
 
-  const pricingPlansExpress = [
-    {
-      name: 'Express Wordpress',
-      price: '$626.700',
-      priceUS: '160,44',
-      icon: '🚀',
-      description: 'Pagina express en WordPress rapida.',
-      features: ['Istalacion y configuración', 'Plantilla premium', '5 páginas de contenido ', 'Hosting y dominio por 1 año']
-    },
-    {
-      name: 'Express Shopify',
-      price: '$900.000',
-      priceUS: '169,12',
-      icon: '🚀',
-      description: 'Tienda en Shopify rapida y funcional.',
-      features: ['Configuración tienda Shopify', 'Diseño personalizado', 'Carga de productos (hasta 30)', 'Hosting y dominio por 1 año'],
-      popular: false
-    },
-    {
-      name: 'Express Astro (Ultra Rápida)',
-      price: '$600.000',
-      priceUS: '153,60',
-      icon: '🚀',
-      description: 'Sitio web estático moderno y rápido, construido con Astro.',
-      features: ['Desarollo sitio estático Astro', 'Optimizaciones de velocidad', 'SEO', 'Hosting y dominio por 1 año'],
-      popular: false
-    }
-  ];
-  
-  const teamMembers = [
-    {
-      name: 'Nicolas Moreno',
-      role: 'Co-Fundador & Desarrollador Backend',
-      skills: ['React', 'Node.js','PostgreSQL', 'Python', 'Django', 'Laravel', 'express', 'astro'],
-      avatar: '👨‍💻',
-      description: 'Especialista en desarrollo backend, con experiencia en frameworks como Django, Laravel y Node.js.'
-    },
-    {
-      name: 'Esteban Lozano',
-      role: 'Co-Fundador & Full Stack Developer',
-      skills: ['Python', 'PostgreSQL', 'Docker',],
-      avatar: '👨‍💻',
-      description: 'Experto en backend, bases de datos y infraestructura cloud'
-    }
-  ];
+const teamMembers = [
+  {
+    name: 'Nicolas Moreno',
+    role: language === 'es' ? 
+      'Co-Fundador & Desarrollador Backend' :
+      'Co-Founder & Backend Developer',
+    skills: ['React', 'Node.js','PostgreSQL', 'Python', 'Django', 'Laravel', 'express', 'astro'],
+    avatar: '👨‍💻',
+    description: language === 'es' ? 
+      'Especialista en desarrollo backend, con experiencia en frameworks como Django, Laravel y Node.js.' :
+      'Backend development specialist, with experience in frameworks like Django, Laravel and Node.js.'
+  },
+  {
+    name: 'Esteban Lozano',
+    role: language === 'es' ? 
+      'Co-Fundador & Full Stack Developer' :
+      'Co-Founder & Full Stack Developer',
+    skills: ['Python', 'PostgreSQL', 'Docker', 'SQL', 'java', 'js', 'react'],
+    avatar: '👨‍💻',
+    description: language === 'es' ? 
+      'desarrollador como full stack con experiencia en bases de datos y infraestructura cloud' :
+      'Full stack developer with experience in databases and cloud infrastructure'
+  }
+];
   
   // Efecto de carga inicial
   useEffect(() => {
@@ -861,26 +1109,26 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
       {/* Proyectos Section */}
       <section id="proyectos" className="section">
         <div className="container">
-          <h2 className="section-title">Nuestros Proyectos</h2>
+          <h2 className="section-title">{t.projects.title}</h2>
           <p className="section-subtitle">
-            Descubre las soluciones innovadoras que hemos desarrollado para nuestros clientes
+            {t.projects.subtitle}
           </p>
           
           {/* Aviso importante sobre backends */}
           <div className="backend-notice">
             <div className="notice-icon">⚠️</div>
             <div className="notice-content">
-              <h4>Importante: Activación de Servicios Backend</h4>
-              <p>Para el correcto funcionamiento del <strong>ERP</strong> y <strong>eCommerce</strong>, es necesario activar primero los backends:</p>
+              <h4>{t.projects.backendNotice.title}</h4>
+              <p>{t.projects.backendNotice.description}</p>
               <div className="backend-links">
                 <a href="https://erp-tikno.onrender.com" target="_blank" rel="noopener noreferrer" className="backend-link">
-                  🔗 Activar ERP Backend
+                  🔗 {t.projects.backendNotice.activateERP}
                 </a>
                 <a href="https://ecommerce-tikno-project.onrender.com" target="_blank" rel="noopener noreferrer" className="backend-link">
-                  🔗 Activar eCommerce Backend
+                  🔗 {t.projects.backendNotice.activateEcommerce}
                 </a>
               </div>
-              <small>Los servicios se suspenden cada 15 minutos en Render (plan gratuito)</small>
+              <small>{t.projects.backendNotice.note}</small>
             </div>
           </div>
           
@@ -889,11 +1137,11 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
              <div className="project-search">
                <input
                  type="text"
-                 placeholder="Buscar proyectos por nombre, descripción o tecnología..."
+                 placeholder={t.projects.searchPlaceholder}
                  value={projectSearch}
                  onChange={(e) => setProjectSearch(e.target.value)}
                  className="search-input"
-                 aria-label="Buscar proyectos"
+                 aria-label={t.projects.searchAriaLabel}
                />
                <span className="search-icon">🔍</span>
              </div>
@@ -906,9 +1154,9 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                    className="sort-select"
                    aria-label="Ordenar proyectos"
                  >
-                   <option value="newest">Más recientes</option>
-                   <option value="oldest">Más antiguos</option>
-                   <option value="alphabetical">Alfabético</option>
+                   <option value="newest">{t.projects.sort.newest}</option>
+                   <option value="oldest">{t.projects.sort.oldest}</option>
+                   <option value="alphabetical">{t.projects.sort.alphabetical}</option>
                  </select>
                </div>
                
@@ -968,8 +1216,8 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
                   <div className="project-technologies">
-                    {project.technologies.slice(0, 3).map(tech => (
-                      <span key={tech} className="tech-tag">{tech}</span>
+                    {project.technologies.slice(0, 3).map((tech, index) => (
+                      <span key={`${project.id}-tech-${index}`} className="tech-tag">{tech}</span>
                     ))}
                     {project.technologies.length > 3 && (
                       <span className="tech-tag">+{project.technologies.length - 3}</span>
@@ -986,9 +1234,9 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
       {/* Tecnologías Section */}
       <section id="tecnologias" className="section">
         <div className="container">
-          <h2 className="section-title">Tecnologías & Expertise</h2>
+          <h2 className="section-title">{t.technologies.title}</h2>
           <p className="section-subtitle">
-            Utilizamos las tecnologías más modernas y confiables del mercado
+            {t.technologies.subtitle}
           </p>
           
           <div className="technologies-grid">
@@ -1006,9 +1254,9 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
       {/* Precios Section */}
       <section id="precios" className="section">
         <div className="container">
-          <h2 className="section-title">Planes y Precios</h2>
+          <h2 className="section-title">{t.pricing.title}</h2>
           <p className="section-subtitle">
-            Soluciones accesibles adaptadas a tu presupuesto y necesidades
+            {t.pricing.subtitle}
           </p>
           
           <div className="pricing-grid">
@@ -1022,8 +1270,8 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                 <div className="pricing-price">{plan.price}</div>
                 <p className="pricing-description">{plan.description}</p>
                 <ul className="pricing-features">
-                  {plan.features.map(feature => (
-                    <li key={feature}>
+                  {plan.features.map((feature, index) => (
+                    <li key={`${plan.name}-feature-${index}`}>
                       <span className="feature-check">✓</span>
                       {feature}
                     </li>
@@ -1034,7 +1282,7 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                     className="btn btn-primary pricing-btn"
                     onClick={() => handlePlanSelection(plan, false)}
                   >
-                    Solicitar Cotización
+                    {t.pricing.requestQuote}
                   </button>
                 </div>
               </div>
@@ -1046,13 +1294,13 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
             {/* Precios Section */}
       <section id="precios" className="section">
         <div className="container">
-          <h2 className="section-title">Planes Express</h2>
+          <h2 className="section-title">{t.pricing.titleExpress}</h2>
           <p className="section-subtitle">
-            Mitad de precio-Mitad de tiempo
+            {t.pricing.subtitleExpress}
           </p> 
           <div className="pricing-grid">
             {pricingPlansExpress.map(plan => (
-              <div key={plan.name} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
+              <div key={`express-${plan.name}`} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
                 {plan.popular && <div className="popular-badge">Más Popular</div>}
                 <div className="pricing-header">
                   <div className="pricing-icon">{plan.icon}</div>
@@ -1061,8 +1309,8 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                 <div className="pricing-price">{plan.price}</div>
                 <p className="pricing-description">{plan.description}</p>
                 <ul className="pricing-features">
-                  {plan.features.map(feature => (
-                    <li key={feature}>
+                  {plan.features.map((feature, index) => (
+                    <li key={`express-${plan.name}-feature-${index}`}>
                       <span className="feature-check">✓</span>
                       {feature}
                     </li>
@@ -1073,7 +1321,7 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                     className="btn btn-primary pricing-btn"
                     onClick={() => handlePlanSelection(plan, true)}
                   >
-                    Solicitar Cotización
+                    {t.pricing.requestQuote}
                   </button>
                 </div>
               </div>
@@ -1085,9 +1333,9 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
       {/* Equipo Section */}
       <section id="equipo" className="section">
         <div className="container">
-          <h2 className="section-title">Nuestro Equipo</h2>
+          <h2 className="section-title">{t.team.title}</h2>
           <p className="section-subtitle">
-            Conoce a los fundadores de TIKNO, apasionados por la tecnología y la innovación
+            {t.team.subtitle}
           </p>
           
           <div className="team-grid">
@@ -1214,36 +1462,36 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
         </div>
       </section>
       
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-brand">
-              <h3>TIKNO</h3>
-              <p>Innovación cercana, software a tu alcance</p>
-              <p>"Hacemos simple lo digital"</p>
-            </div>
-            <div className="footer-links">
-              <h4>Enlaces</h4>
-              <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#tecnologias">Tecnologías</a></li>
-                <li><a href="#precios">Precios</a></li>
-              </ul>
-            </div>
-            <div className="footer-contact">
-              <h4>Contacto</h4>
-              <p>nm5571762@gmail.com</p>
-              <p>+57 (350) 232-8517</p>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; 2025 TIKNO. Todos los derechos reservados.</p>
-            <p>Desarrollado por Nicolas Moreno & Esteban Lozano</p>
-          </div>
-        </div>
-      </footer>
+    {/* Footer */}
+  <footer className="footer">
+  <div className="container">
+    <div className="footer-content">
+      <div className="footer-brand">
+        <h3>{t.footer.brand}</h3>
+        <p>{t.footer.brandDescription}</p>
+        <p>{t.footer.brandQuote}</p>
+      </div>
+      <div className="footer-links">
+        <h4>{t.footer.links}</h4>
+        <ul>
+          <li><a href="#inicio">{t.footer.inicio}</a></li>
+          <li><a href="#proyectos">{t.footer.proyectos}</a></li>
+          <li><a href="#tecnologias">{t.footer.tecnologias}</a></li>
+          <li><a href="#precios">{t.footer.precios}</a></li>
+        </ul>
+      </div>
+      <div className="footer-contact">
+        <h4>{t.footer.contact}</h4>
+        <p>{t.footer.email}</p>
+        <p>{t.footer.phone}</p>
+      </div>
+    </div>
+    <div className="footer-bottom">
+      <p>&copy; 2025 {t.footer.brand}. {t.footer.rights}</p>
+      <p>{t.footer.developedBy}</p>
+    </div>
+  </div>
+</footer>
       
       {/* Modal de Proyecto */}
       {selectedProject && (
@@ -1268,8 +1516,8 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                   <div className="modal-technologies">
                     <h4>Tecnologías utilizadas:</h4>
                     <div className="tech-tags">
-                      {selectedProject.technologies.map(tech => (
-                        <span key={tech} className="tech-tag">{tech}</span>
+                      {selectedProject.technologies.map((tech, index) => (
+                        <span key={`modal-tech-${index}`} className="tech-tag">{tech}</span>
                       ))}
                     </div>
                   </div>
@@ -1277,8 +1525,8 @@ Me gustaría solicitar una cotización personalizada y conocer más detalles sob
                   <div className="modal-features">
                     <h4>Características principales:</h4>
                     <ul>
-                      {selectedProject.features.map(feature => (
-                        <li key={feature}>{feature}</li>
+                      {selectedProject.features.map((feature, index) => (
+                        <li key={`modal-feature-${index}`}>{feature}</li>
                       ))}
                     </ul>
                   </div>

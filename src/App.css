@@ -304,6 +304,23 @@
   animation: heroBreathing 8s ease-in-out infinite;
 }
 
+@media (max-width: 1024px) {
+  .hero-content {
+    padding: 2rem 1rem; /* menos espacio en laptops/tablets */
+    min-height: auto;   /* que no obligue altura mínima */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem); /* texto más pequeño */
+  }
+
+  .hero-mission {
+    margin: 2rem 0; /* menos aire */
+  }
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -902,7 +919,7 @@
 
 /* ===== SECTIONS ===== */
 .section {
-  padding: 120px 0;
+  padding: 10px 0;
   position: relative;
   z-index: 100;
   min-height: 100vh;
