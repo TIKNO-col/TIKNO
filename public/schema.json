@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TIKNO",
+  "url": "https://tikno-col.github.io/TIKNO",
+  "logo": "https://tikno-col.github.io/TIKNO/logoTIKNO.jpg",
+  "description": "Innovación cercana, software a tu alcance. Desarrollo web, apps móviles y software personalizado.",
+  "sameAs": [
+    "https://github.com/tikno-col"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Colombia"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "contacto@tikno.co"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "COP",
+    "highPrice": "5000000",
+    "lowPrice": "500000",
+    "offerCount": "5"
+  },
+  "serviceType": [
+    "Desarrollo Web",
+    "Aplicaciones Móviles",
+    "Software Personalizado",
+    "E-commerce",
+    "Landing Page",
+    "ERP"
+  ]
+}

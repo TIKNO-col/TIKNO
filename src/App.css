@@ -1020,7 +1020,7 @@
 }
 
 .contact {
-  background: linear-gradient(135deg, var(--color-green-gray), var(--color-black-green));
+  background: linear-gradient(135deg, var(--color-red-gray), var(--color-black-red));
   position: relative;
   overflow: hidden;
 }

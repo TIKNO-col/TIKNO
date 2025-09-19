@@ -327,7 +327,7 @@ const translations = {
       ¡Espero su respuesta!`
           : `Hello TIKNO,
 
-      I am interested in the "${plan.name}" (${planType}) plan with a price of ${plan.price} COP.
+      I am interested in the "${plan.name}" (${planType}) plan with a price of ${plan.price} USD.
 
       ${plan.description}
 
