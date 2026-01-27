@@ -8,13 +8,20 @@
 }
 
 :root {
-  /* Paleta de colores ultra vibrante - Tema Neon Futurista */
-  --color-brown-dark: #0A0A0F;
-  --color-gold-mustard: #8B5CF6;
-  --color-beige-gold: #F97316;
-  --color-green-gray: #06D6A0;
-  --color-gray-carbon: #1E1B4B;
-  --color-black-green: #0F0F23;
+  /* Nueva Paleta Purple Premium */
+  --color-purple-deep: #4A1C69;
+  --color-purple-vibrant: #7C4ADB;
+  --color-purple-medium: #BC5FD9;
+  --color-lila-bright: #E085F5;
+  --color-lavender-soft: #F2CCFA;
+  
+  /* Mapeo de variables existentes para compatibilidad */
+  --color-brown-dark: #0F0814; /* Casi negro morado para fondo */
+  --color-black-green: #1A0B26;
+  --color-gold-mustard: var(--color-purple-vibrant);
+  --color-beige-gold: var(--color-lavender-soft);
+  --color-green-gray: var(--color-purple-medium);
+  --color-gray-carbon: #2D1140;
   
   /* Variables adicionales */
   --font-primary: 'Poppins', sans-serif;
