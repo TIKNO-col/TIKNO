@@ -2,10 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { pricingPlans, pricingPlansExpress } from '../data';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PricingPage = () => {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
+
+  const handleQuoteClick = (planName) => {
+    // Codificamos el nombre del plan para la URL
+    const plan = encodeURIComponent(planName);
+    navigate(`/contacto?plan=${plan}`);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -137,9 +144,12 @@ const PricingPage = () => {
             </div>
           </div>
 
-          <Link to="/contacto" className="btn-tikno-pricing">
+          <button 
+            onClick={() => handleQuoteClick(plan.name[language])}
+            className="btn-tikno-pricing"
+          >
             {t.pricing.requestQuote}
-          </Link>
+          </button>
         </motion.div>
       ))}
     </div>

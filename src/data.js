@@ -101,8 +101,9 @@ export const projects = [
 
 export const pricingPlans = [
   {
+    id: 'digital',
     name: { es: 'Presencia digital', en: 'Digital Presence' },
-    price: { es: '$700.000 COP', en: '$179 USD' },
+    price: { es: '$700.000 COP', en: '$350 USD' },
     icon: process.env.PUBLIC_URL + '/ICONS/precensia.png',
     description: {
       es: 'Tu negocio online con presencia profesional lista para crecer.',
@@ -114,6 +115,7 @@ export const pricingPlans = [
     }
   },
   {
+    id: 'ecommerce',
     name: { es: 'Vende En Línea', en: 'Sell Online' },
     price: { es: '$2.700.000 COP', en: '$691 USD' },
     icon: process.env.PUBLIC_URL + '/ICONS/tienda-online.png',
@@ -128,6 +130,7 @@ export const pricingPlans = [
     }
   },
   {
+    id: 'custom',
     name: { es: 'Solución a Medida', en: 'Custom Solution' },
     price: { es: '$4.000.000 COP', en: '$1,024 USD' },
     icon: process.env.PUBLIC_URL + '/ICONS/medida.png',
@@ -144,8 +147,9 @@ export const pricingPlans = [
 
 export const pricingPlansExpress = [
   {
+    id: 'wp',
     name: { es: 'Express Wordpress', en: 'Express WordPress' },
-    price: { es: '$626.700 COP', en: '$160 USD' },
+    price: { es: '$626.700 COP', en: '$240 USD' },
     icon: process.env.PUBLIC_URL + '/ICONS/wordpress.png',
     description: { es: 'Página express en WordPress rápida.', en: 'Fast express WordPress page.' },
     features: {
@@ -154,8 +158,9 @@ export const pricingPlansExpress = [
     }
   },
   {
+    id: 'shopify',
     name: { es: 'Express Shopify', en: 'Express Shopify' },
-    price: { es: '$900.000 COP', en: '$230 USD' },
+    price: { es: '$900.000 COP', en: '$240 USD' },
     icon: process.env.PUBLIC_URL + '/ICONS/social.png',
     description: { es: 'Tienda en Shopify rápida y funcional.', en: 'Fast and functional Shopify store.' },
     features: {
@@ -164,8 +169,9 @@ export const pricingPlansExpress = [
     }
   },
   {
+    id: 'astro',
     name: { es: 'Express Astro', en: 'Express Astro' },
-    price: { es: '$600.000 COP', en: '$154 USD' },
+    price: { es: '$600.000 COP', en: '$200 USD' },
     icon: process.env.PUBLIC_URL + '/ICONS/Astro.png',
     description: { es: 'Sitio web estático ultra rápido.', en: 'Ultra fast static website.' },
     features: {
@@ -178,33 +184,39 @@ export const pricingPlansExpress = [
 export const teamMembers = [
   {
     name: 'Nicolas Moreno',
-    role: { es: 'Co-Fundador & Desarrollador Backend', en: 'Co-Founder & Backend Developer' },
-    skills: ['React', 'Node.js', 'PostgreSQL', 'Python', 'Django', 'Laravel'],
-    avatar: '👨‍💻',
+    handle: 'nicomoreno',
+    role: { es: 'Co-Fundador & Backend', en: 'Co-Founder & Backend' },
+    avatarUrl: process.env.PUBLIC_URL + '/Perfil.jpeg',
+    status: 'Online',
     description: {
-      es: 'Especialista en desarrollo backend, con experiencia en frameworks como Django, Laravel y Node.js.',
-      en: 'Backend development specialist, with experience in frameworks like Django, Laravel and Node.js.'
-    }
+      es: 'Especialista en desarrollo backend y arquitectura de sistemas.',
+      en: 'Specialist in backend development and systems architecture.'
+    },
+    skills: ['Node.js', 'Python', 'PostgreSQL', 'Docker']
   },
   {
-    name: 'Esteban Lozano',
-    role: { es: 'Co-Fundador & Full Stack Developer', en: 'Co-Founder & Full Stack Developer' },
-    skills: ['Python', 'PostgreSQL', 'Docker', 'SQL', 'React', 'Java'],
-    avatar: '👨‍💻',
+    name: 'Esteban David Lozano',
+    handle: 'estebanlozano',
+    role: { es: 'Co-Fundador & Full Stack', en: 'Co-Founder & Full Stack' },
+    avatarUrl: 'https://ui-avatars.com/api/?name=Esteban+Lozano&background=BC5FD9&color=fff',
+    status: 'Away',
     description: {
-      es: 'Desarrollador full stack con experiencia en bases de datos e infraestructura cloud.',
-      en: 'Full stack developer with experience in databases and cloud infrastructure.'
-    }
+      es: 'Desarrollador full stack experto en bases de datos e infraestructura.',
+      en: 'Full stack developer expert in databases and infrastructure.'
+    },
+    skills: ['React', 'Java', 'SQL', 'Cloud']
   },
   {
-    name: 'Tikno AI',
-    role: { es: 'Asistente de IA & Optimización', en: 'AI Assistant & Optimization' },
-    skills: ['Deep Learning', 'NLP', 'Automation', 'Code Review'],
-    avatar: '🤖',
+    name: 'Michael Calvo',
+    handle: 'michaeldesigner',
+    role: { es: 'Diseñador UI/UX', en: 'UI/UX Designer' },
+    avatarUrl: 'https://ui-avatars.com/api/?name=Michael+Calvo&background=BC5FD9&color=fff',
+    status: 'Online',
     description: {
-      es: 'Nuestro núcleo de inteligencia artificial que potencia el flujo de trabajo y la calidad del código.',
-      en: 'Our core artificial intelligence that powers the workflow and code quality.'
-    }
+      es: 'Creativo encargado de la experiencia visual y estética premium.',
+      en: 'Creative in charge of visual experience and premium aesthetics.'
+    },
+    skills: ['Figma', 'Web Design', 'Branding', 'Motion']
   }
 ];
 
@@ -229,7 +241,7 @@ export const translations = {
     projects: {
       title: 'Nuestros Proyectos',
       subtitle: 'Descubre las soluciones innovadoras que hemos desarrollado para nuestros clientes',
-      searchPlaceholder: 'Buscar proyectos...',
+      searchPlaceholder: 'Buscar proyectos...', 
       categories: {
         all: 'Todos',
         web: 'Desarrollo Web',
@@ -268,7 +280,9 @@ export const translations = {
       phone: 'Teléfono',
       location: 'Ubicación',
       country: 'Colombia',
-      whatsappOption: 'O contáctanos por WhatsApp'
+      whatsappOption: 'O contáctanos por WhatsApp',
+      quoteSubject: 'Cotización para Plan',
+      quoteMessage: 'Hola TIKNO! Me gustaría solicitar una cotización para el plan:'
     },
     whatsapp: {
       message: 'Hola TIKNO! Estoy interesado en un proyecto de software...'
@@ -348,7 +362,9 @@ export const translations = {
       phone: 'Phone',
       location: 'Location',
       country: 'Colombia',
-      whatsappOption: 'Or contact us via WhatsApp'
+      whatsappOption: 'Or contact us via WhatsApp',
+      quoteSubject: 'Quote for Plan',
+      quoteMessage: 'Hello TIKNO! I would like to request a quote for the plan:'
     },
     whatsapp: {
       message: 'Hello TIKNO! I am interested in a software project...'

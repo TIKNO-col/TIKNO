@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { teamMembers } from '../data';
 import emailjs from '@emailjs/browser';
+import ProfileCard from '../components/ProfileCard';
+import { useLocation } from 'react-router-dom';
 
 const ContactPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +17,19 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+
+  // Efecto para pre-llenar el formulario si viene de Pricing
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const planName = params.get('plan');
+    if (planName) {
+      setFormData(prev => ({
+        ...prev,
+        title: `${t.contact.quoteSubject}: ${planName}`,
+        message: `${t.contact.quoteMessage} ${planName}.\n\n`
+      }));
+    }
+  }, [location.search, t.contact.quoteSubject, t.contact.quoteMessage]);
 
   useEffect(() => {
     emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
@@ -59,7 +76,25 @@ const ContactPage = () => {
   return (
     <div style={{ padding: '140px 0 100px', minHeight: '100vh', background: '#050505', color: 'white' }}>
       <div className="container">
-        <div style={{ 
+        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 900, marginBottom: '20px' }}
+          >
+            {t.contact.title}
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '700px', margin: '0 auto' }}
+          >
+            {t.contact.subtitle}
+          </motion.p>
+        </div>
+
+        <div id="contact-form-section" style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
           gap: '80px',
@@ -71,12 +106,9 @@ const ContactPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 800, marginBottom: '20px', lineHeight: 1 }}>
-              {t.contact.title}
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', marginBottom: '60px', maxWidth: '500px' }}>
-              {t.contact.subtitle}
-            </p>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '40px' }}>
+              {t.contact.info}
+            </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
@@ -93,14 +125,7 @@ const ContactPage = () => {
                   <div style={{ fontSize: '1.1rem', fontWeight: 600 }}>+57 (350) 232-8517</div>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <div className="contact-icon-box">📍</div>
-                <div>
-                  <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', opacity: 0.5 }}>{t.contact.location}</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 600 }}>Colombia</div>
-                </div>
-              </div>
-
+              
               {/* WhatsApp Link directly in info side */}
               <motion.a 
                 href={whatsappUrl}
@@ -114,26 +139,25 @@ const ContactPage = () => {
                   textDecoration: 'none', 
                   color: 'inherit',
                   marginTop: '20px',
-                  padding: '20px',
-                  background: 'rgba(37, 211, 102, 0.1)',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(37, 211, 102, 0.2)'
+                  padding: '25px',
+                  background: 'rgba(37, 211, 102, 0.05)',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(37, 211, 102, 0.1)'
                 }}
               >
                 <div style={{ 
-                  width: '50px', 
-                  height: '50px', 
-                  background: '#25D366', 
-                  borderRadius: '15px', 
+                  width: '60px', 
+                  height: '60px', 
+                  borderRadius: '18px', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  fontSize: '1.5rem'
+                  overflow: 'hidden'
                 }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.004 2C6.48 2 2.004 6.48 2.004 12C2.004 13.76 2.464 15.41 3.264 16.85L2.004 22L7.294 20.71C8.684 21.52 10.294 22 12.004 22C17.524 22 22.004 17.52 22.004 12C22.004 6.48 17.524 2 12.004 2ZM17.114 16.39C16.914 16.95 16.114 17.44 15.554 17.56C15.164 17.67 14.654 17.76 12.944 17.05C10.754 16.14 9.344 13.91 9.234 13.76C9.134 13.61 8.354 12.59 8.354 11.53C8.354 10.47 8.894 9.95 9.124 9.71C9.304 9.5 9.604 9.39 9.894 9.39C9.984 9.39 10.074 9.39 10.154 9.4C10.394 9.41 10.514 9.42 10.674 9.78C10.874 10.26 11.364 11.46 11.424 11.58C11.484 11.7 11.544 11.86 11.464 12.02C11.384 12.18 11.324 12.28 11.204 12.43C11.084 12.58 10.964 12.7 10.844 12.85C10.734 12.98 10.604 13.12 10.754 13.38C10.904 13.63 11.424 14.48 12.194 15.17C13.184 15.86 14.004 16.08 14.284 16.21C14.564 16.34 14.724 16.31 14.924 16.08C15.124 15.85 15.784 15.08 16.014 14.73C16.244 14.38 16.474 14.43 16.784 14.55C17.094 14.67 18.744 15.48 19.084 15.65C19.424 15.82 19.644 15.9 19.734 16.05C19.824 16.2 19.824 16.91 19.624 17.47L17.114 16.39Z"/></svg>
+                  <img src={process.env.PUBLIC_URL + '/ICONS/whatsapp.png'} alt="WhatsApp" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>WhatsApp</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#25D366' }}>WhatsApp Direct</div>
                   <div style={{ fontSize: '0.9rem', opacity: 0.7 }}>{t.contact.whatsappOption}</div>
                 </div>
               </motion.a>

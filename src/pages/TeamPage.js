@@ -1,109 +1,140 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { teamMembers } from '../data';
+import ProfileCard from '../components/ProfileCard';
+import { useNavigate } from 'react-router-dom';
 
 const TeamPage = () => {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
+  const { scrollYProgress } = useScroll();
+  
+  // Parallax para el texto de fondo
+  const bgTextX = useTransform(scrollYProgress, [0, 1], [0, -500]);
+
+  // Configuración de colores de brillo para cada miembro
+  const behindGlowColors = [
+    "hsla(280, 100%, 70%, 0.4)", // Nicolas (Purple)
+    "hsla(210, 100%, 70%, 0.4)", // Esteban (Blue)
+    "hsla(356, 100%, 70%, 0.4)"  // Michael (Red/Orange)
+  ];
 
   return (
-    <div style={{ padding: '120px 0 100px', minHeight: '100vh', background: '#050505' }}>
-      <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '20px' }}
+    <div style={{ background: '#050505', minHeight: '300vh', position: 'relative', overflow: 'hidden' }}>
+      
+      {/* TEXTO DE FONDO GIGANTE (ESTILO EDITORIAL) */}
+      <motion.div style={{
+        position: 'fixed', top: '20%', left: '5%', whiteSpace: 'nowrap',
+        fontSize: '25vw', fontWeight: 900, color: 'rgba(255,255,255,0.02)',
+        zIndex: 0, pointerEvents: 'none', x: bgTextX, textTransform: 'uppercase'
+      }}>
+        {t.nav.equipo} TIKNO TEAM
+      </motion.div>
+
+      {/* HEADER SECTION */}
+      <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
+        <div style={{ textAlign: 'center' }}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            style={{ 
+              fontSize: 'clamp(4rem, 15vw, 12rem)', fontWeight: 900, color: '#FFF', 
+              lineHeight: 0.8, letterSpacing: '-10px', textTransform: 'uppercase'
+            }}
           >
-            {t.team.title}
-          </motion.h1>
-          <motion.p 
+            {t.nav.equipo}
+          </motion.div>
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.6)', maxWidth: '700px', margin: '0 auto' }}
+            transition={{ delay: 0.5 }}
+            style={{ 
+              fontSize: '1.5rem', color: '#BC5FD9', letterSpacing: '10px', 
+              marginTop: '20px', textTransform: 'uppercase', fontWeight: 300 
+            }}
           >
             {t.team.subtitle}
           </motion.p>
         </div>
+      </section>
 
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '40px',
-          padding: '0 20px'
-        }}>
-          {teamMembers.map((member, index) => (
+      {/* MEMBERS SECTION - CINEMATIC SCROLL */}
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        {teamMembers.map((member, index) => (
+          <section 
+            key={index} 
+            style={{ 
+              height: '100vh', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
+              padding: '0 5%'
+            }}
+          >
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -15, transition: { duration: 0.3 } }}
-              style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                backdropFilter: 'blur(20px)',
-                borderRadius: '32px',
-                padding: '50px 40px',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
-                textAlign: 'center',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8, type: 'spring' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '60px', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse' }}
             >
-              <div style={{ 
-                fontSize: '5rem', 
-                marginBottom: '30px', 
-                background: 'rgba(188, 95, 217, 0.1)',
-                width: '120px',
-                height: '120px',
-                lineHeight: '120px',
-                borderRadius: '50%',
-                margin: '0 auto 30px',
-                border: '1px solid rgba(188, 95, 217, 0.2)'
-              }}>
-                {member.avatar}
-              </div>
+              <ProfileCard
+                name={member.name}
+                title={member.role[language]}
+                handle={member.handle}
+                status={member.status}
+                avatarUrl={member.avatarUrl}
+                contactText={language === 'es' ? 'Contactar' : 'Contact'}
+                showUserInfo={true}
+                enableTilt={true}
+                onContactClick={() => navigate('/contacto')}
+                behindGlowColor={behindGlowColors[index]}
+              />
 
-              <h3 style={{ fontSize: '1.8rem', color: '#FFF', marginBottom: '10px' }}>{member.name}</h3>
-              <div style={{ 
-                color: '#BC5FD9', 
-                fontWeight: 700, 
-                fontSize: '0.9rem', 
-                textTransform: 'uppercase', 
-                letterSpacing: '2px',
-                marginBottom: '20px'
-              }}>
-                {member.role[language]}
-              </div>
-
-              <p style={{ 
-                color: 'rgba(255,255,255,0.6)', 
-                lineHeight: 1.6, 
-                marginBottom: '30px',
-                fontSize: '1rem'
-              }}>
-                {member.description[language]}
-              </p>
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
-                {member.skills.map((skill, i) => (
-                  <span key={i} style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '6px 15px',
-                    borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    color: '#FFF',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
-                  }}>
-                    {skill}
-                  </span>
-                ))}
+              <div style={{ maxWidth: '400px', textAlign: index % 2 === 0 ? 'left' : 'right' }}>
+                <motion.h2 
+                  style={{ fontSize: '4rem', fontWeight: 900, color: '#FFF', margin: 0, lineHeight: 1 }}
+                >
+                  0{index + 1}
+                </motion.h2>
+                <div style={{ height: '2px', width: '60px', background: '#BC5FD9', margin: '20px 0', marginLeft: index % 2 === 0 ? '0' : 'auto' }} />
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.2rem', lineHeight: 1.6, marginBottom: '30px' }}>
+                  {member.description[language]}
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end' }}>
+                  {member.skills.map((skill, i) => (
+                    <span key={i} style={{
+                      padding: '8px 20px', borderRadius: '30px', background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)', color: '#FFF', fontSize: '0.8rem'
+                    }}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          </section>
+        ))}
       </div>
+
+      {/* FOOTER CALL TO ACTION IN TEAM */}
+      <section style={{ height: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate('/contacto')}
+          style={{
+            background: '#BC5FD9', color: '#FFF', border: 'none',
+            padding: '30px 80px', borderRadius: '100px', fontSize: '1.5rem',
+            fontWeight: 900, cursor: 'pointer', boxShadow: '0 20px 40px rgba(188, 95, 217, 0.3)'
+          }}
+        >
+          {t.hero.btnContact}
+        </motion.button>
+      </section>
+
     </div>
   );
 };
