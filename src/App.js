@@ -8,6 +8,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import PricingPage from './pages/PricingPage';
 import TeamPage from './pages/TeamPage';
+import ServiceTemplate from './pages/ServiceTemplate';
 import WhatsAppButton from './components/WhatsAppButton';
 import './App.css';
 
@@ -26,6 +27,7 @@ const AppContent = () => {
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/precios" element={<PricingPage />} />
           <Route path="/equipo" element={<TeamPage />} />
+          <Route path="/servicios/:slug" element={<ServiceTemplate />} />
         </Routes>
       </main>
       {/* Solo mostramos el footer si NO estamos en el home */}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { projects } from '../data';
+import SEO from '../components/SEO';
 
 const ProjectsPage = () => {
   const { t, language } = useLanguage();
@@ -29,6 +30,11 @@ const ProjectsPage = () => {
       className="section"
       style={{ paddingTop: '140px', background: '#050505', minHeight: '100vh' }}
     >
+      <SEO 
+        title="Proyectos" 
+        description="Explora nuestro portafolio de desarrollo web, aplicaciones móviles y eCommerce. Soluciones tecnológicas de alto impacto."
+        url="/proyectos"
+      />
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: '#FFF', marginBottom: '20px' }}>

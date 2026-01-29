@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import { motion } from 'framer-motion';
 import LightRays from '../components/LightRays';
+import SEO from '../components/SEO';
 
 const HomePage = () => {
   return (
@@ -9,9 +10,13 @@ const HomePage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      style={{ position: 'relative', background: '#000000', minHeight: '100vh', overflow: 'hidden' }}
+      style={{ position: 'relative', background: '#050505', minHeight: '100vh', overflow: 'hidden' }}
     >
-      {/* BACKGROUND GLOBAL - ATMOSFÉRICO POTENCIADO */}
+      <SEO 
+        title="Inicio" 
+        description="TIKNO Studio: Transformamos ideas en experiencias digitales. Desarrollo web, eCommerce y Software a medida en Colombia."
+      />
+      {/* BACKGROUND GLOBAL - ATMOSFÉRICO */}
       <div style={{ 
         position: 'fixed', 
         top: 0, 

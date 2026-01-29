@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { pricingPlans, pricingPlansExpress } from '../data';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const PricingPage = () => {
   const { t, language } = useLanguage();
@@ -89,7 +89,7 @@ const PricingPage = () => {
               borderRadius: '20px',
               border: '1px solid rgba(188, 95, 217, 0.2)'
             }}>
-              {typeof plan.icon === 'string' && (plan.icon.includes('/ICONS/') || plan.icon.startsWith('http')) ? (
+              {typeof plan.icon === 'string' && (plan.icon.includes('/ICONS/') || plan.icon.includes('process.env.PUBLIC_URL') || plan.icon.startsWith('http')) ? (
                 <img src={plan.icon} alt={plan.name[language]} style={{ width: '50px', height: '50px', objectFit: 'contain' }} />
               ) : (
                 plan.icon

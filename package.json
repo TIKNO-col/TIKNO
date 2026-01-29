@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio profesional premium para TIKNO - Innovación cercana, software a tu alcance",
   "main": "index.js",
-  "homepage": "https://tikno-col.github.io/TIKNO/",
+  "homepage": "https://tikno.pro/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -19,6 +19,7 @@
     "ogl": "^1.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.13.0",
     "react-scripts": "^5.0.1",
     "shadcn": "^3.7.0",
@@ -45,6 +46,7 @@
   "author": "TIKNO - Nicolas Moreno & Esteban Lozano",
   "license": "MIT",
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "sitemap": "^9.0.0"
   }
 }
