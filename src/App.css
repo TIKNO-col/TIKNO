@@ -79,36 +79,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem clamp(1rem, 4vw, 2rem);
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: clamp(1rem, 3vh, 2rem) 0;
 }
 
 .nav-logo h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--color-gold-mustard), var(--color-beige-gold));
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-purple-medium), #FFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: logoGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes logoGlow {
-  from {
-    filter: drop-shadow(0 0 5px rgba(149, 110, 47, 0.3));
-  }
-  to {
-    filter: drop-shadow(0 0 15px rgba(149, 110, 47, 0.6));
-  }
+  letter-spacing: -0.05em;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: clamp(1rem, 3vw, 2rem);
+  gap: clamp(1rem, 3vw, 2.5rem);
   margin: 0;
   padding: 0;
   align-items: center;

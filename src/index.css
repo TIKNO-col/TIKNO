@@ -35,12 +35,12 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 14px; /* Reducido de 16px para que no se vea tan grande */
+  font-size: 16px;
 }
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--color-brown-dark);
+  background-color: #050505;
   color: var(--color-beige-gold);
   line-height: 1.6;
   overflow-x: hidden;
@@ -48,51 +48,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar personalizada */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-gray-carbon);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-gold-mustard);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-beige-gold);
-}
-
-/* Utilidades globales */
+/* Utilidades globales responsivas */
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: min(1400px, 90vw);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(1rem, 5vw, 3rem);
 }
-
-
 
 .section-title {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  font-weight: 800;
   text-align: center;
-  margin-bottom: 1rem;
-  color: var(--color-beige-gold);
-  position: relative;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #FFF, var(--color-purple-medium));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   text-align: center;
-  margin-bottom: 4rem;
-  color: var(--color-beige-gold);
-  opacity: 0.8;
-  max-width: 600px;
+  margin-bottom: clamp(3rem, 10vh, 6rem);
+  color: var(--color-lavender-soft);
+  opacity: 0.7;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.5;
 }
 
 .btn {

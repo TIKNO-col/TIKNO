@@ -33,10 +33,10 @@ const HomePage = () => {
           bottom: '-10%',
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '60vw',
+          width: 'clamp(300px, 80vw, 1000px)',
           height: '40vh',
-          background: 'radial-gradient(circle, rgba(188, 95, 217, 0.25) 0%, rgba(124, 74, 219, 0.1) 40%, transparent 80%)',
-          filter: 'blur(80px)',
+          background: 'radial-gradient(circle, rgba(188, 95, 217, 0.3) 0%, rgba(124, 74, 219, 0.1) 50%, transparent 80%)',
+          filter: 'blur(clamp(40px, 10vw, 100px))',
           zIndex: 1
         }} />
 
@@ -46,17 +46,17 @@ const HomePage = () => {
           height: '100%', 
           position: 'relative', 
           zIndex: 2,
-          opacity: 0.9, // Subimos opacidad para que brille más
-          mixBlendMode: 'screen', // Suma luz al fondo negro
-          filter: 'brightness(1.8) contrast(1.2)' // Fuerza el brillo de los rayos
+          opacity: window.innerWidth < 768 ? 0.6 : 0.9,
+          mixBlendMode: 'screen',
+          filter: 'brightness(1.5) contrast(1.1)'
         }}>
           <LightRays
             raysOrigin="bottom-center"
             raysColor="#ffffff"
-            raysSpeed={3.5}       // Más energía
-            lightSpread={1.8}     // Los rayos cubren más pantalla
-            rayLength={15}        // Rayos mucho más largos y potentes
-            followMouse={true}
+            raysSpeed={window.innerWidth < 768 ? 2 : 3.5}
+            lightSpread={window.innerWidth < 768 ? 1.2 : 1.8}
+            rayLength={window.innerWidth < 768 ? 10 : 20}
+            followMouse={window.innerWidth > 1024}
             mouseInfluence={0.7}
             noiseAmount={0.2}     // Un toque de "polvo" en el aire
             distortion={0.3}      // Hace que la luz se vea orgánica
