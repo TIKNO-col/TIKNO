@@ -44,6 +44,7 @@ const Footer = () => {
               <li><Link to="/" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.footer.inicio}</Link></li>
               <li><Link to="/proyectos" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.footer.proyectos}</Link></li>
               <li><Link to="/precios" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.pricing.title || t.nav.precios}</Link></li>
+              <li><Link to="/equipo" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.nav.equipo}</Link></li>
               <li><Link to="/contacto" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.footer.contact}</Link></li>
             </ul>
           </div>
@@ -69,6 +70,10 @@ const Footer = () => {
           <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.85rem', marginBottom: '10px' }}>
             &copy; {new Date().getFullYear()} {t.footer.brand}. {t.footer.rights}
           </p>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginBottom: '10px' }}>
+            <Link to="/privacidad" style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.75rem', textDecoration: 'none' }}>Política de Privacidad</Link>
+            <Link to="/terminos" style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.75rem', textDecoration: 'none' }}>Términos de Servicio</Link>
+          </div>
           <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.75rem' }}>
             {t.footer.developedBy}
           </p>
