@@ -69,7 +69,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Router basename="/TIKNO">
+      <Router>
         <AppContent />
       </Router>
     </LanguageProvider>
