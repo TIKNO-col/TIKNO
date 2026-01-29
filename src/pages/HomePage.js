@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import { motion } from 'framer-motion';
 import LightRays from '../components/LightRays';
 import SEO from '../components/SEO';
+import HomeContent from '../components/HomeContent';
 
 const HomePage = () => {
   return (
@@ -77,9 +78,10 @@ const HomePage = () => {
       </div>
 
       {/* CONTENIDO PRINCIPAL */}
-      <div style={{ position: 'relative', zIndex: 10 }}>
+      <main style={{ position: 'relative', zIndex: 10 }}>
         <Hero />
-      </div>
+        <HomeContent />
+      </main>
 
       <style>{`
         /* Efecto de partículas sutiles en los rayos */

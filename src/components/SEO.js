@@ -5,11 +5,11 @@ import { useLanguage } from '../context/LanguageContext';
 const SEO = ({ title, description, keywords, image, url, type = 'website', serviceSchema }) => {
   const { language } = useLanguage();
   const siteUrl = 'https://tikno.pro';
-  const siteTitle = 'TIKNO | Software Studio de Élite en Colombia';
+  const siteTitle = 'TIKNO | Software Studio de Élite';
   const currentTitle = title ? `${title} | TIKNO` : siteTitle;
   const currentDescription = description || (language === 'es' 
-    ? 'TIKNO: Estudio de software de élite. Expertos en Desarrollo Web, eCommerce y Aplicaciones a Medida. Transformamos ideas en soluciones digitales de alto impacto.' 
-    : 'TIKNO: Elite software studio. Experts in Web Development, eCommerce, and Custom Applications. We transform ideas into high-impact digital solutions.');
+    ? 'TIKNO Studio: Expertos en Desarrollo Web, eCommerce y Software a Medida en Colombia. Transformamos ideas en soluciones digitales de alto impacto.' 
+    : 'TIKNO Studio: Experts in Web Development, eCommerce, and Custom Software in Colombia. We transform ideas into high-impact digital solutions.');
   const currentImage = image ? `${siteUrl}${image}` : `${siteUrl}/Tikno.jpg`;
   const currentUrl = url ? `${siteUrl}${url}` : siteUrl;
 

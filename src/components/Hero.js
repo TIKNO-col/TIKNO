@@ -63,16 +63,27 @@ const Hero = () => {
             letterSpacing: '-4px',
             lineHeight: 0.8
           }}>
+            <span style={{ 
+              display: 'block', 
+              fontSize: 'clamp(0.8rem, 1.5vw, 1.2rem)', 
+              letterSpacing: '8px', 
+              color: '#BC5FD9', 
+              fontWeight: 500, 
+              marginBottom: '15px',
+              textTransform: 'uppercase'
+            }}>
+              Software Studio
+            </span>
             TIKNO
           </h1>
           <p style={{ 
-            color: '#BC5FD9', 
+            color: 'rgba(255,255,255,0.5)', 
             letterSpacing: '12px', 
-            fontSize: '0.8rem', 
-            marginTop: '10px',
+            fontSize: '0.7rem', 
+            marginTop: '15px',
             fontWeight: 400 
           }}>
-            INNOVATION
+            DESARROLLO WEB & ECOMMERCE
           </p>
         </div>
 
