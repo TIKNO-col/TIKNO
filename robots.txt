@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://tikno-col.github.io/TIKNO/sitemap.xml
+
+Sitemap: https://tikno.pro/sitemap.xml
