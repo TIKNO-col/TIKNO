@@ -84,7 +84,7 @@ const HomeContent = () => {
             color: 'rgba(255,255,255,0.7)',
             marginBottom: '60px'
           }}>
-            {c.description}
+            {c.description} Utilizamos tecnologías de vanguardia como <a href="https://react.dev" target="_blank" rel="noopener noreferrer" style={{ color: '#BC5FD9', textDecoration: 'none', borderBottom: '1px solid #BC5FD9' }}>React</a> para garantizar la mejor experiencia.
           </p>
         </motion.div>
 

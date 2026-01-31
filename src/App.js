@@ -8,6 +8,8 @@ import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import PricingPage from './pages/PricingPage';
 import TeamPage from './pages/TeamPage';
+import AboutPage from './pages/AboutPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ServiceTemplate from './pages/ServiceTemplate';
 import WhatsAppButton from './components/WhatsAppButton';
 import './App.css';
@@ -20,13 +22,15 @@ const AppContent = () => {
   return (
     <div className="App" style={{ background: '#050505', color: 'white' }}>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/proyectos" element={<ProjectsPage />} />
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/precios" element={<PricingPage />} />
           <Route path="/equipo" element={<TeamPage />} />
+          <Route path="/nosotros" element={<AboutPage />} />
+          <Route path="/privacidad" element={<PrivacyPolicyPage />} />
           <Route path="/servicios/:slug" element={<ServiceTemplate />} />
         </Routes>
       </main>

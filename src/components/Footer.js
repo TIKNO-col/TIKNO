@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="footer" style={{ 
@@ -42,6 +42,7 @@ const Footer = () => {
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li><Link to="/" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.footer.inicio}</Link></li>
+              <li><Link to="/nosotros" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{language === 'es' ? 'Sobre Nosotros' : 'About Us'}</Link></li>
               <li><Link to="/proyectos" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.footer.proyectos}</Link></li>
               <li><Link to="/precios" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.pricing.title || t.nav.precios}</Link></li>
               <li><Link to="/equipo" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none', transition: '0.3s' }}>{t.nav.equipo}</Link></li>
