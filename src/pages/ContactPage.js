@@ -5,6 +5,7 @@ import { teamMembers } from '../data';
 import emailjs from '@emailjs/browser';
 import ProfileCard from '../components/ProfileCard';
 import { useLocation } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const ContactPage = () => {
   const { t, language } = useLanguage();
@@ -75,6 +76,11 @@ const ContactPage = () => {
 
   return (
     <div style={{ padding: '140px 0 100px', minHeight: '100vh', background: '#050505', color: 'white' }}>
+      <SEO 
+        title="Contacto | Hablemos de tu Próximo Proyecto" 
+        description="¿Tienes una idea? Nosotros la hacemos realidad. Contáctanos para asesoría personalizada en desarrollo de software y estrategia digital."
+        url="/contacto"
+      />
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '80px' }}>
           <motion.h1 

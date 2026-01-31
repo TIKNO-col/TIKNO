@@ -14,8 +14,8 @@ const HomePage = () => {
       style={{ position: 'relative', background: '#050505', minHeight: '100vh', overflow: 'hidden' }}
     >
       <SEO 
-        title="Inicio" 
-        description="TIKNO Studio: Transformamos ideas en experiencias digitales. Desarrollo web, eCommerce y Software a medida en Colombia."
+        title="Desarrollo Web Premium & Software a Medida" 
+        description="TIKNO Studio: Transformamos ideas en experiencias digitales de alto impacto. Especialistas en Desarrollo Web, eCommerce y Software a medida en Colombia."
       />
       {/* BACKGROUND GLOBAL - ATMOSFÉRICO */}
       <div style={{ 
@@ -78,10 +78,10 @@ const HomePage = () => {
       </div>
 
       {/* CONTENIDO PRINCIPAL */}
-      <main style={{ position: 'relative', zIndex: 10 }}>
+      <div style={{ position: 'relative', zIndex: 10 }}>
         <Hero />
         <HomeContent />
-      </main>
+      </div>
 
       <style>{`
         /* Efecto de partículas sutiles en los rayos */

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { pricingPlans, pricingPlansExpress } from '../data';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const PricingPage = () => {
   const { t, language } = useLanguage();
@@ -157,6 +158,11 @@ const PricingPage = () => {
 
   return (
     <div style={{ padding: '140px 0 100px', minHeight: '100vh', background: '#050505', color: 'white' }}>
+      <SEO 
+        title="Precios y Planes de Desarrollo Web" 
+        description="Conoce nuestros planes de desarrollo web, eCommerce y soluciones express. Calidad de élite ajustada a tus necesidades."
+        url="/precios"
+      />
       <motion.div 
         className="container"
         initial="hidden"

@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { teamMembers } from '../data';
 import ProfileCard from '../components/ProfileCard';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const TeamPage = () => {
   const { t, language } = useLanguage();
@@ -22,6 +23,11 @@ const TeamPage = () => {
 
   return (
     <div style={{ background: '#050505', minHeight: '300vh', position: 'relative', overflow: 'hidden' }}>
+      <SEO 
+        title="Nuestro Equipo | Talento Detrás de TIKNO" 
+        description="Conoce a los expertos en ingeniería y diseño que transforman negocios a través de la tecnología en TIKNO Studio."
+        url="/equipo"
+      />
       
       {/* TEXTO DE FONDO GIGANTE (ESTILO EDITORIAL) */}
       <motion.div style={{
